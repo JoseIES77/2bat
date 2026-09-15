@@ -7,5 +7,4 @@ __pycache__/
 *.xls
 *.xlsx
 mkdocs/primeravez.md
-mkdocs/img/logoOLD.png
-mkdocs/docs/img/logoOLD.png
+mkdocs/**/logoOLD.png
