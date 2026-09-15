@@ -1,0 +1,41 @@
+site_name: Introducció a la Programació (IPRG)
+site_url: https://abeneto.github.io/IPRG_2526
+theme:
+  name: material
+  language: es
+  logo: 'img/logo.png'
+  favicon: 'img/logo.png'
+
+  palette:
+    accent: purple
+    primary: deep purple
+
+#nav:
+ # - Introducció a la Programació: index.md
+ # - Sobre...: about.md
+
+extra_css:
+  - styles/landing.css  # CSS personalizado para diseño de la página principal
+  - styles/material-just.css
+  - styles/extra.css
+
+plugins:
+ # - glightbox   # Per vore les imatges en gran quan fas clic en elles.
+ # - pandoc
+
+markdown_extensions:
+  - attr_list           # Permet incorporar atributs a les imatges { width=100px }
+  - md_in_html # Junt a attr_list per afegir peus a les imatges
+  - admonition
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - toc:
+      baselevel: 2
+      toc_depth: 3
+  

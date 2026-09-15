@@ -1,0 +1,8 @@
+site/
+curs25-26_portal/entornVirtual/
+curs25-26_portal/docs/
+curs25-26_portal/plugins/
+__pycache__/
+*.pyc
+*.xls
+*.xlsx
