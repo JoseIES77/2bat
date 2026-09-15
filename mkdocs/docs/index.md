@@ -1,4 +1,9 @@
-<h1 style="display:none;"># Inici</h1>
+<!-- <h1 style="display:none;"># Inici</h1>-->
+---
+hide:
+  - navigation
+  - toc
+---
 
 # Benvinguts al curs de Programació, xarxes i sistemes informàtics II
 
