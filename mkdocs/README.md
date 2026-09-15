@@ -2,7 +2,7 @@ Per a publicar:
 
 mkdocs gh-deploy --force
 
-REPO: https://abeneto.github.io/IPRG2526/
+REPO: https://joseies77.github.io/2bat/
 
 pandoc 4_Bulleti2.md -o 4_Bulleti2.pdf --pdf-engine=lualatex
 
