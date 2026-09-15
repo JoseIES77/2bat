@@ -1,8 +1,8 @@
-site_name: PRX II
+site_name: Optativa PRX II
 site_url: https://abeneto.github.io/IPRG_2526
 
 nav:
-  - Mòdul PRX II: index.md
+  - Index: index.md
   - 1. Fonaments de la Programació:  u1
   - 2. Estructures de Control i Depuració: u2
   - 3. E/S i Gestió de Dades: u3
