@@ -1,20 +1,17 @@
-site_name: Introducció a la Programació (IPRG)
-site_url: https://abeneto.github.io/IPRG_2526
-
-nav:
-  - Mòdul Introducció a la Programació: index.md
-  - 1. Fonaments de la Programació:  u1
-  - 2. Estructures de Control i Depuració: u2
-  - 3. E/S i Gestió de Dades: u3
-  - 4. Matrius, Operacions Agregades i Expressions Regulars: u4
-  - 5. Jose probando: u5
-  - Sobre...: about.md
-
+site_name: "5. Probando. Matrius, Operacions Agregades i Expressions Regulars"
+nav: 
+      - Inici: index.md
+      - Introduccio: 1.Introduccio.md
+      - Matrius (Arrays) i Matrius Multidimensionals: 2.Matrius.md
+      - Manipulació de Cadenes de Text i Expressions Regulars: 3.Cadenes_ER.md
+      - Operacions Agregades. Filtració, Reducció i Recol·lecció: 4.Agregades.md
+      - Tractament de Documents i Intercanvi de Dades: 5.Documents.md
 
 theme:
   name: 'material'
-  logo: 'img/logo.png'
-  favicon: 'img/logo.png'
+  custom_dir: 'overrides'
+  logo: '../img/logo.png'
+  favicon: '../img/logo.png'
   features:
     - content.code.copy # PEr copiar codi
   palette:
