@@ -1,6 +1,6 @@
 <h1 style="display:none;"># Inici</h1>
 
-# Benvinguts al curs d'Introducció a la Programació
+# Benvinguts al curs de Programació, xarxes i sistemes informàtics II
 
 ![](img/IPRG.jpg){: style="display: block; margin-left: auto; margin-right: auto; width: 400px;" }
 
@@ -33,7 +33,7 @@ Com a aplicació pràctica, aprendrem a desenvolupar petites aplicacions amb int
 
 ---
 
-Aquest curs d’**Introducció a la Programació** està dissenyat perquè adquirisques les bases tècniques i pràctiques per continuar avançant en el món del desenvolupament de programari. Tant si mai has programat abans com si ja tens alguna experiència, aquest curs et donarà una visió global i sòlida per afrontar reptes més complexos en el futur.
+Aquest curs de **Programació, xarxes i sistemes informàtics II** està dissenyat perquè adquirisques les bases tècniques i pràctiques per continuar avançant en el món del desenvolupament de programari. Tant si mai has programat abans com si ja tens alguna experiència, aquest curs et donarà una visió global i sòlida per afrontar reptes més complexos en el futur.
 
 Així doncs, prepareu-vos per **pensar com a programadors** i descobrir com les línies de codi poden transformar idees en aplicacions reals!
 

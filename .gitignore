@@ -6,3 +6,6 @@ __pycache__/
 *.pyc
 *.xls
 *.xlsx
+mkdocs/primeravez.md
+mkdocs/img/logoOLD.png
+mkdocs/docs/img/logoOLD.png
