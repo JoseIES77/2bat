@@ -1,0 +1,1349 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../10_Funcions/">
+      
+      
+        <link rel="next" href="../12_ExtraGithub/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../img/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Pràctica Final UD1 - 1. Fonaments bàsics de la programació</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://joamuran.net/curs24_25/css/material-just.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#practica-final-introduccio-a-python" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="1. Fonaments bàsics de la programació" class="md-header__button md-logo" aria-label="1. Fonaments bàsics de la programació" data-md-component="logo">
+      
+  <img src="../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            1. Fonaments bàsics de la programació
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Pràctica Final UD1
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="1. Fonaments bàsics de la programació" class="md-nav__button md-logo" aria-label="1. Fonaments bàsics de la programació" data-md-component="logo">
+      
+  <img src="../img/logo.png" alt="logo">
+
+    </a>
+    1. Fonaments bàsics de la programació
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inici
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1_IntroPRG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducció a la programació
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2_Introduccio_Python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducció a Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3_Preparant_entorn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Preparant l'entorn
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4_HelloWorld/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hello World!
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5_Estructura_programa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Estructura d'un programa en Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6_OperadorsExpresions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operadors y Expressions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7_Numeros_Cadenes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Números i Text
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8_InputOutput/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entrada i Eixida Estàndar
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9_Llistes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Llistes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_Funcions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Funcions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pràctica Final UD1
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pràctica Final UD1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#practica-final-introduccio-a-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pràctica Final - Introducció a Python
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pràctica Final - Introducció a Python">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-operacions-amb-numeros-i-textos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Operacions amb números i textos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-llistes-i-manipulacio-de-dades" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Llistes i manipulació de dades
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-funcions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Funcions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-operadors-i-expressions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Operadors i expressions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-projecte-final-crear-una-xicoteta-aplicacio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Projecte final - Crear una xicoteta aplicació
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-que-fa-aquest-codi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Què fa aquest codi?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-corregeix-aquest-codi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Corregeix aquest codi
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#avaluacio-i-criteris-de-qualificacio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Avaluació i Criteris de Qualificació
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12_ExtraGithub/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GitHub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#practica-final-introduccio-a-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pràctica Final - Introducció a Python
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pràctica Final - Introducció a Python">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-operacions-amb-numeros-i-textos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Operacions amb números i textos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-llistes-i-manipulacio-de-dades" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Llistes i manipulació de dades
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-funcions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Funcions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-operadors-i-expressions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Operadors i expressions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-projecte-final-crear-una-xicoteta-aplicacio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Projecte final - Crear una xicoteta aplicació
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-que-fa-aquest-codi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Què fa aquest codi?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-corregeix-aquest-codi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Corregeix aquest codi
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#avaluacio-i-criteris-de-qualificacio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Avaluació i Criteris de Qualificació
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+  
+    <!-- Contingut per a altres pàgines -->
+    
+                  
+
+
+
+  <h1>Pràctica Final UD1</h1>
+
+<h2 id="practica-final-introduccio-a-python">Pràctica Final - Introducció a Python</h2>
+<p>Aquesta pràctica final t'ajudarà a consolidar els coneixements adquirits fins ara. Resol els exercicis següents, que integren els conceptes clau com <strong>números</strong>, <strong>textos</strong>, <strong>llistes</strong>, <strong>funcions</strong>, <strong>operadors</strong> i <strong>expressions</strong>.</p>
+<hr />
+<h3 id="1-operacions-amb-numeros-i-textos">1. Operacions amb números i textos</h3>
+<h4 id="exercici-11-calculadora-simple">Exercici 1.1 - Calculadora simple</h4>
+<p>Crea un programa que permeti a l'usuari realitzar operacions aritmètiques simples. El programa ha de fer el següent:</p>
+<ol>
+<li>Demanar a l'usuari dos números (enter i flotant).</li>
+<li>Mostrar el resultat de la suma, resta, multiplicació, divisió, divisió entera i mòdul entre els dos números.</li>
+<li>Realitzar la <strong>concatenació de cadenes de text</strong> i mostrar un missatge com a resultat.</li>
+</ol>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Pista: Utilitza la funció `input()` per obtenir dades de l'usuari i converteix-les amb `int()` o `float()`</span>
+</span></code></pre></div>
+<h4 id="exercici-12-comparar-dos-numeros">Exercici 1.2 - Comparar dos números</h4>
+<ol>
+<li>Demanar dos números a l'usuari.</li>
+<li>Comprovar si el primer número és més gran que el segon, si són iguals o si el primer és menor que el segon.</li>
+<li>Mostrar el resultat amb un missatge clar, utilitzant operadors de comparació.</li>
+</ol>
+<hr />
+<h3 id="2-llistes-i-manipulacio-de-dades">2. Llistes i manipulació de dades</h3>
+<h4 id="exercici-21-llista-destudiants">Exercici 2.1 - Llista d'estudiants</h4>
+<ol>
+<li>Crea una llista amb els noms de 5 estudiants.</li>
+<li>Afegir un nou estudiant a la llista.</li>
+<li>Eliminar el segon estudiant de la llista.</li>
+<li>Imprimir la llista completa després de cada operació.</li>
+</ol>
+<hr />
+<h3 id="3-funcions">3. Funcions</h3>
+<h4 id="exercici-31-funcio-de-salutacio">Exercici 3.1 - Funció de salutació</h4>
+<ol>
+<li>Crea una funció que rebi el nom de l'usuari com a paràmetre i imprimeixi una salutació personalitzada.</li>
+<li>Crida aquesta funció amb diferents noms i observa el resultat.</li>
+</ol>
+<h4 id="exercici-32-funcio-per-calcular-larea-dun-cercle">Exercici 3.2 - Funció per calcular l'àrea d'un cercle</h4>
+<ol>
+<li>Crea una funció que rebi el radi d'un cercle i retorni l'àrea.</li>
+<li>Demana a l'usuari el radi del cercle i imprimeix l'àrea calculada.</li>
+</ol>
+<h4 id="exercici-33-funcio-amb-valor-per-defecte">Exercici 3.3 - Funció amb valor per defecte</h4>
+<ol>
+<li>Crea una funció que sumi dos números. Assigna un valor per defecte al segon número, de manera que si no es passa un segon valor, la funció utilitze aquest valor per defecte.</li>
+<li>Crida la funció amb un sol valor i amb dos valors, i observa els resultats.</li>
+</ol>
+<hr />
+<h3 id="4-operadors-i-expressions">4. Operadors i expressions</h3>
+<h4 id="exercici-41-operadors-aritmetics-i-logics">Exercici 4.1 - Operadors aritmètics i lògics</h4>
+<ol>
+<li>Crea una variable <code>x</code> amb valor <code>10</code> i una altra <code>y</code> amb valor <code>5</code>.</li>
+<li>Realitza les següents operacions:</li>
+<li>Suma, resta, multiplicació, divisió i mòdul entre <code>x</code> i <code>y</code>.</li>
+<li>Comprova si <code>x</code> és més gran que <code>y</code> i imprimeix el resultat.</li>
+<li>
+<p>Comprova si <code>x</code> és igual a <code>y</code> i imprimeix el resultat.</p>
+</li>
+<li>
+<p>Utilitza operadors lògics per combinar les condicions. Comprova si <code>x</code> és més gran que <code>y</code> <strong>i</strong> si el mòdul de <code>x</code> és 0. Imprimeix el resultat.</p>
+</li>
+</ol>
+<h4 id="exercici-42-operador-in-i-not-in">Exercici 4.2 - Operador <code>in</code> i <code>not in</code></h4>
+<ol>
+<li>Crea una llista amb noms de fruits.</li>
+<li>Demana a l'usuari que introduisca un fruit i comprova si aquest fruit es troba a la llista utilitzant l'operador <code>in</code>.</li>
+<li>Si el fruit no es troba a la llista, utilitza <code>not in</code> per mostrar un missatge indicant que el fruit no existeix.</li>
+</ol>
+<hr />
+<h3 id="5-projecte-final-crear-una-xicoteta-aplicacio">5. Projecte final - Crear una xicoteta aplicació</h3>
+<h4 id="exercici-51-calculadora-dimc-index-de-massa-corporal">Exercici 5.1 - Calculadora d'IMC (Índex de Massa Corporal)</h4>
+<ol>
+<li>Crea una aplicació que calculi l'IMC d'una persona.</li>
+<li>Demana a l'usuari el seu pes i la seva alçada.</li>
+<li>Utilitza la fórmula <code>IMC = pes / (alçada ** 2)</code> per calcular l'IMC.</li>
+<li>Mostra un missatge indicant si l'IMC està dins d'un rang saludable: </li>
+<li><strong>IMC &lt; 18.5</strong>: Inferior al pes saludable.</li>
+<li><strong>18.5 &lt;= IMC &lt;= 24.9</strong>: Pes saludable.</li>
+<li><strong>IMC &gt; 24.9</strong>: Sobreeiximent de pes.</li>
+</ol>
+<hr />
+<h3 id="6-que-fa-aquest-codi">6. Què fa aquest codi?</h3>
+<h4 id="exercici-61">Exercici 6.1</h4>
+<p>Què fa el següent codi? Descriu en detall el que fa i el resultat que s'obtindria si l'executessis amb els valors actuals:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">]</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">b</span> <span class="o">=</span> <span class="mi">20</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="k">if</span> <span class="mi">5</span> <span class="ow">in</span> <span class="n">a</span><span class="p">:</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="n">b</span> <span class="o">-=</span> <span class="mi">5</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="k">if</span> <span class="mi">10</span> <span class="ow">in</span> <span class="n">a</span><span class="p">:</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="n">b</span> <span class="o">-=</span> <span class="mi">10</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="k">if</span> <span class="mi">15</span> <span class="ow">in</span> <span class="n">a</span><span class="p">:</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    <span class="n">b</span> <span class="o">-=</span> <span class="mi">15</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</span></code></pre></div>
+<h4 id="exercici-62">Exercici 6.2</h4>
+<p>Què fa el següent codi? Descriu en detall el que fa i el resultat que s'obtindria si l'executessis amb els valors actuals:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">]</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">b</span> <span class="o">=</span> <span class="mi">20</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="k">if</span> <span class="mi">5</span> <span class="ow">in</span> <span class="n">a</span><span class="p">:</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="n">b</span> <span class="o">-=</span> <span class="mi">5</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="k">elif</span> <span class="mi">10</span> <span class="ow">in</span> <span class="n">a</span><span class="p">:</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    <span class="n">b</span> <span class="o">-=</span> <span class="mi">10</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="k">else</span> <span class="mi">15</span> <span class="ow">in</span> <span class="n">a</span><span class="p">:</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>    <span class="n">b</span> <span class="o">-=</span> <span class="mi">15</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</span></code></pre></div>
+<h4 id="exercici-63">Exercici 6.3</h4>
+<p>Què fa el següent codi? Explica què retornaria si el valor de <code>n</code> és 6:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>        <span class="k">return</span> <span class="mi">1</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>        <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">factorial</span><span class="p">(</span><span class="mi">6</span><span class="p">))</span>
+</span></code></pre></div>
+<hr />
+<h3 id="7-corregeix-aquest-codi">7. Corregeix aquest codi</h3>
+<h4 id="exercici-71">Exercici 7.1</h4>
+<p>El següent codi té un error. Troba'l i corregeix-lo:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">y</span> <span class="o">=</span> <span class="mi">5</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="k">if</span> <span class="n">x</span> <span class="o">=</span> <span class="n">y</span><span class="p">:</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"Són iguals"</span><span class="p">)</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="k">else</span><span class="p">:</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"Són diferents"</span><span class="p">)</span>
+</span></code></pre></div>
+<h4 id="exercici-72">Exercici 7.2</h4>
+<p>El següent codi presenta un error al treballar amb llistes. Troba l'error i corregeix-lo:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">llista</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">llista</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+</span></code></pre></div>
+<h4 id="exercici-8">Exercici 8</h4>
+<p>Crea el teu repository a Github anomenat "IPRG_2526".</p>
+<p>Una vegada creat, hauràs de pujar a ell una carpeta anomenada "Exercicis_UD1" amb tots els exercicis que hem fet.</p>
+<hr />
+<h2 id="avaluacio-i-criteris-de-qualificacio">Avaluació i Criteris de Qualificació</h2>
+<table>
+<thead>
+<tr>
+<th>Exercici</th>
+<th>Criteri de Qualificació</th>
+<th>Ítem d'Avaluació Específic</th>
+<th>Rúbrica de Puntuació (0-10)</th>
+<th>Nota (0-10)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Gral.</strong></td>
+<td>RA1.c) Ús d'entorns integrats de desenrotllament.</td>
+<td>Execució i proves dins de l'IDE.</td>
+<td>El programa s'executa correctament i es fa servir l'entorn de forma bàsica.</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Gral.</strong></td>
+<td>RA1.b) Creació de projectes de desenrotllament d’aplicacions.</td>
+<td>Estructura d'arxius i del repositori.</td>
+<td>Es crea el projecte/arxiu principal i es guarda en una estructura lògica. (Complementat per Ej. 8)</td>
+<td></td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
+<td>---</td>
+<td>---</td>
+<td>---</td>
+</tr>
+<tr>
+<td>1.1 Calculadora simple</td>
+<td>RA1.g) Ús dels operadors del llenguatge.</td>
+<td>Aplicació dels 6 operadors aritmètics i l'operador de concatenació.</td>
+<td>S'utilitzen correctament +, -, *, /, //, % i la concatenació de cadenes.</td>
+<td></td>
+</tr>
+<tr>
+<td>1.1 Calculadora simple</td>
+<td>RA1.e) Modificació de codi per crear i utilitzar variables.</td>
+<td>Declaració i ús de variables per a emmagatzemar entrades i resultats.</td>
+<td>S'assignen i manipulen variables per als números i el text de manera efectiva.</td>
+<td></td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
+<td>---</td>
+<td>---</td>
+<td>---</td>
+</tr>
+<tr>
+<td>1.2 Comparar dos números</td>
+<td>RA1.g) Ús dels operadors del llenguatge.</td>
+<td>Ús correcte d'operadors de comparació.</td>
+<td>S'utilitzen de forma adequada els operadors de comparació (&gt;, &lt;, ==).</td>
+<td></td>
+</tr>
+<tr>
+<td>1.2 Comparar dos números</td>
+<td>RA1.d) Identificació dels diferents tipus de variables.</td>
+<td>Conversió de les entrades de l'usuari als tipus numèrics adequats.</td>
+<td>S'aplica correctament la conversió de l'entrada de text a tipus numèric (p. ex., amb int() o float()).</td>
+<td></td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
+<td>---</td>
+<td>---</td>
+<td>---</td>
+</tr>
+<tr>
+<td>2.1 Llista d'estudiants</td>
+<td>RA1.a) Identificació dels blocs de l'estructura.</td>
+<td>Ús i manipulació de llistes com a estructura de dades.</td>
+<td>Es crea i es manipula la llista mitjançant mètodes com append() (afegir) i pop() o del (eliminar).</td>
+<td></td>
+</tr>
+<tr>
+<td>2.1 Llista d'estudiants</td>
+<td>RA1.e) Modificació de codi per crear i utilitzar variables.</td>
+<td>Manipulació de l'estat d'una variable composta (llista).</td>
+<td>La llista es crea i es modifica d'acord amb els 3 passos de l'exercici (crear, afegir, eliminar).</td>
+<td></td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
+<td>---</td>
+<td>---</td>
+<td>---</td>
+</tr>
+<tr>
+<td>3.1 Funció de salutació</td>
+<td>RA1.a) Identificació dels blocs de l'estructura.</td>
+<td>Definició i crida d'una funció sense retorn (def).</td>
+<td>La funció es defineix amb paràmetres i es crida de forma correcta.</td>
+<td></td>
+</tr>
+<tr>
+<td>3.1 Funció de salutació</td>
+<td>RA1.i) Introducció de comentaris en el codi.</td>
+<td>Inclusió de comentaris per descriure la funció.</td>
+<td>S'afegeix un comentari (# o docstring) explicant l'objectiu de la funció o el seu ús.</td>
+<td></td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
+<td>---</td>
+<td>---</td>
+<td>---</td>
+</tr>
+<tr>
+<td>3.2 Funció per calcular l'àrea</td>
+<td>RA1.f) Creació i ús de constants i literals.</td>
+<td>Ús de la constant π o un literal numèric.</td>
+<td>Es defineix i utilitza un valor constant per a π o s'utilitza el literal correcte en la fórmula.</td>
+<td></td>
+</tr>
+<tr>
+<td>3.2 Funció per calcular l'àrea</td>
+<td>RA1.a) Identificació dels blocs de l'estructura.</td>
+<td>Funció amb càlcul i retorn de valor (return).</td>
+<td>La funció realitza el càlcul de l'àrea i retorna el resultat correcte.</td>
+<td></td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
+<td>---</td>
+<td>---</td>
+<td>---</td>
+</tr>
+<tr>
+<td>3.3 Funció amb valor per defecte</td>
+<td>RA1.d) Identificació dels diferents tipus de variables.</td>
+<td>Implementació d'un paràmetre amb valor per defecte.</td>
+<td>El segon paràmetre de la funció té un valor assignat per defecte (p. ex., def suma(a, b=0):).</td>
+<td></td>
+</tr>
+<tr>
+<td>3.3 Funció amb valor per defecte</td>
+<td>RA1.e) Modificació de codi per crear i utilitzar variables.</td>
+<td>Crida de la funció amb un sol argument i amb dos.</td>
+<td>La funció es prova amb èxit en tots dos escenaris (amb i sense el valor per defecte).</td>
+<td></td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
+<td>---</td>
+<td>---</td>
+<td>---</td>
+</tr>
+<tr>
+<td>4.1 Operadors aritmètics i lògics</td>
+<td>RA1.g) Ús dels operadors del llenguatge.</td>
+<td>Combinació d'operadors aritmètics, de comparació i lògics.</td>
+<td>S'utilitzen +, -, *, /, %, &gt;/== i l'operador lògic and per a una expressió composta.</td>
+<td></td>
+</tr>
+<tr>
+<td>4.1 Operadors aritmètics i lògics</td>
+<td>RA1.e) Modificació de codi per crear i utilitzar variables.</td>
+<td>Ús de variables per emmagatzemar els resultats booleans.</td>
+<td>Es creen variables per x i y, i s'utilitzen en les expressions complexes.</td>
+<td></td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
+<td>---</td>
+<td>---</td>
+<td>---</td>
+</tr>
+<tr>
+<td>4.2 Operador in i not in</td>
+<td>RA1.g) Ús dels operadors del llenguatge.</td>
+<td>Ús correcte dels operadors de pertinença (in i not in).</td>
+<td>Es comprova la presència/absència d'un element en una llista utilitzant ambdós operadors.</td>
+<td></td>
+</tr>
+<tr>
+<td>4.2 Operador in i not in</td>
+<td>RA1.a) Identificació dels blocs de l'estructura.</td>
+<td>Ús de llistes i expressions condicionals basades en la pertinença.</td>
+<td>Es fa servir una llista com a context de cerca i les expressions es resolen correctament.</td>
+<td></td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
+<td>---</td>
+<td>---</td>
+<td>---</td>
+</tr>
+<tr>
+<td>5.1 Calculadora d'IMC</td>
+<td>RA1.h) Funcionament de conversions de tipus.</td>
+<td>Conversió de text a numèric i gestió de la sortida.</td>
+<td>Es converteixen les entrades (pes, alçada) a float abans de calcular l'IMC.</td>
+<td></td>
+</tr>
+<tr>
+<td>5.1 Calculadora d'IMC</td>
+<td>RA1.e) Modificació de codi per crear i utilitzar variables.</td>
+<td>Ús de variables per emmagatzemar l'IMC i utilització en condicions.</td>
+<td>S'utilitzen variables per a pes, alçada, IMC i s'avaluen en la lògica condicional.</td>
+<td></td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
+<td>---</td>
+<td>---</td>
+<td>---</td>
+</tr>
+<tr>
+<td>"6.1, 6.2, 6.3 Descripció de codi"</td>
+<td>RA1.a) Identificació dels blocs de l'estructura.</td>
+<td>Descripció detallada del funcionament (if/elif/else, recursivitat).</td>
+<td>S'identifiquen correctament les estructures i es prediu el resultat del codi amb precisió.</td>
+<td></td>
+</tr>
+<tr>
+<td>"6.1, 6.2, 6.3 Descripció de codi"</td>
+<td>RA1.e) Modificació de codi per crear i utilitzar variables.</td>
+<td>Traçabilitat i seguiment del valor de les variables.</td>
+<td>S'explica com el valor de variables com b o n canvia al llarg de l'execució del codi.</td>
+<td></td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
+<td>---</td>
+<td>---</td>
+<td>---</td>
+</tr>
+<tr>
+<td>7.1 Corregeix el codi (Comparació)</td>
+<td>RA1.e) Modificació de codi per crear i utilitzar variables.</td>
+<td>Correcció de l'error de sintaxi d'assignació vs. comparació (= vs. ==).</td>
+<td>S'identifica l'error if x = y: i es corregeix a if x == y:.</td>
+<td></td>
+</tr>
+<tr>
+<td>7.1 Corregeix el codi (Comparació)</td>
+<td>RA1.i) Introducció de comentaris en el codi.</td>
+<td>Ús de comentaris per justificar la correcció.</td>
+<td>S'afegeix un comentari (#) per explicar la diferència entre = i ==.</td>
+<td></td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
+<td>---</td>
+<td>---</td>
+<td>---</td>
+</tr>
+<tr>
+<td>7.2 Corregeix el codi (Llista)</td>
+<td>RA1.e) Modificació de codi per crear i utilitzar variables.</td>
+<td>Correcció de l'error de lògica d'índexs de llista.</td>
+<td>S'identifica l'error d'índex fora de rang (llista[5]) i es corregeix a un índex vàlid (p. ex., llista[4]).</td>
+<td></td>
+</tr>
+<tr>
+<td>7.2 Corregeix el codi (Llista)</td>
+<td>RA1.d) Identificació dels diferents tipus de variables.</td>
+<td>Demostració de la comprensió de la indexació de llistes (tipus estructurat).</td>
+<td>La correcció reflecteix que els índexs de llista comencen per 0 i que l'índex màxim és longitud - 1.</td>
+<td></td>
+</tr>
+<tr>
+<td>---</td>
+<td>---</td>
+<td>---</td>
+<td>---</td>
+<td>---</td>
+</tr>
+<tr>
+<td>8 Projecte final (Git)</td>
+<td>RA1.b) Creació de projectes de desenrotllament d’aplicacions.</td>
+<td>Creació i organització del repositori a Github.</td>
+<td>El repositori existeix amb el nom correcte i conté la carpeta Exercicis_UD1 amb els arxius.</td>
+<td></td>
+</tr>
+<tr>
+<td>8 Projecte final (Git)</td>
+<td>RA1.i) Introducció de comentaris en el codi.</td>
+<td>Inclusió d'un README.md o missatges de commit clars.</td>
+<td>Es crea el repositori amb almenys un missatge de commit coherent, demostrant traçabilitat del codi.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><a href="./Correccio_Practica/Rubrica_PracticaFinal_IPRG2.xlsx">Rubrica d'avaluació</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+  
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,792 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../2.OperacionsBasiques/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../img/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Introduccio - 3. E/S i Gestió de Dades</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://joamuran.net/curs24_25/css/material-just.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-introduccio-a-lentradasortida-es" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="3. E/S i Gestió de Dades" class="md-header__button md-logo" aria-label="3. E/S i Gestió de Dades" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            3. E/S i Gestió de Dades
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Introduccio
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="3. E/S i Gestió de Dades" class="md-nav__button md-logo" aria-label="3. E/S i Gestió de Dades" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    3. E/S i Gestió de Dades
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inici
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduccio
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduccio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduccio-a-lentradasortida-es" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Introducció a l'Entrada/Sortida (E/S)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Introducció a l&#39;Entrada/Sortida (E/S)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#que-es-lentradasortida-es" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Què és l'Entrada/Sortida (E/S)?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-consola-com-a-mecanisme-des" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        La Consola com a Mecanisme d'E/S
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fluxos-streams-i-tipus-de-dades" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fluxos (Streams) i Tipus de Dades
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gestio-de-fitxers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gestió de Fitxers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#criteris-de-format-en-la-sortida" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Criteris de Format en la Sortida
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conclusions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.OperacionsBasiques/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operacions Bàsiques
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.FluxosDades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fluxos de Dades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.GestioFitxers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestió de Fitxers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.TecniquesAvan%C3%A7ades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tecniques Avançades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.Llibreries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Llibreries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduccio-a-lentradasortida-es" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Introducció a l'Entrada/Sortida (E/S)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Introducció a l&#39;Entrada/Sortida (E/S)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#que-es-lentradasortida-es" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Què és l'Entrada/Sortida (E/S)?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-consola-com-a-mecanisme-des" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        La Consola com a Mecanisme d'E/S
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fluxos-streams-i-tipus-de-dades" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fluxos (Streams) i Tipus de Dades
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gestio-de-fitxers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gestió de Fitxers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#criteris-de-format-en-la-sortida" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Criteris de Format en la Sortida
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conclusions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+  
+    <!-- Contingut per a altres pàgines -->
+    
+                  
+
+
+
+<h1 style="display:none;"># Inici</h1>
+
+<h2 id="1-introduccio-a-lentradasortida-es">1. Introducció a l'Entrada/Sortida (E/S)</h2>
+<h3 id="que-es-lentradasortida-es">Què és l'Entrada/Sortida (E/S)?</h3>
+<p>Les operacions d'<strong>Entrada/Sortida (E/S)</strong> són fonamentals per a qualsevol programa, ja que permeten la <strong>interacció</strong> amb l'usuari i la <strong>persistència de les dades</strong>. La E/S es refereix a la transferència de dades entre el programa i el món exterior (com el teclat, la pantalla o fitxers en disc).</p>
+<p>La <strong>E/S</strong> pot ser:</p>
+<ul>
+<li><strong>Entrada</strong>: Quan el programa rep dades de l'usuari o d'un dispositiu extern, com el teclat, el ratolí, o fitxers.</li>
+<li><strong>Sortida</strong>: Quan el programa envia dades a l'usuari o a un dispositiu extern, com la pantalla o fitxers de text.</li>
+</ul>
+<p>Les operacions d'E/S són imprescindibles perquè permeten que el programa pugui interactuar amb l'entorn de manera dinàmica. Per exemple, quan un usuari introdueix dades a través del teclat o quan un programa escriu resultats en un fitxer.</p>
+<hr />
+<h3 id="la-consola-com-a-mecanisme-des">La Consola com a Mecanisme d'E/S</h3>
+<p>Una de les formes més bàsiques d'interactuar amb el programa és a través de la <strong>consola</strong>. Aquesta interactua amb l'usuari mitjançant <strong>entrada per teclat</strong> i <strong>sortida per pantalla</strong>. Aquest mecanisme és molt utilitzat perquè és senzill i directe.</p>
+<h4 id="entrada-per-teclat">Entrada per Teclat</h4>
+<p>La <strong>entrada per teclat</strong> es fa mitjançant funcions que permeten llegir dades introduïdes pel <strong>usuari</strong>. Per exemple, en Python, utilitzem la funció <code>input()</code> per llegir dades des del teclat. El valor que l'usuari introdueix es guarda com una <strong>cadena de caràcters</strong>.</p>
+<p>Exemple:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">nom</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Introdueix el teu nom: "</span><span class="p">)</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Hola, "</span> <span class="o">+</span> <span class="n">nom</span><span class="p">)</span>
+</span></code></pre></div>
+- En aquest exemple, el programa sol·licita al usuari que introdueixi el seu nom i després el mostra per pantalla.</p>
+<h5 id="coses-importants-sobre-input">Coses importants sobre <code>input()</code>:</h5>
+<ul>
+<li><code>input()</code> <strong>sempre retorna una cadena de caràcters</strong>, fins i tot si l'usuari introdueix un número. Si necessitem convertir aquesta entrada en un altre tipus de dada (per exemple, un número), hem de fer servir funcions com <code>int()</code> o <code>float()</code>.</li>
+</ul>
+<p>Exemple de conversió:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">edat</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Quants anys tens? "</span><span class="p">))</span>
+</span></code></pre></div></p>
+<h4 id="sortida-a-la-pantalla">Sortida a la Pantalla</h4>
+<p>La <strong>sortida a la pantalla</strong> és el mecanisme més habitual per mostrar dades a l'usuari. En Python, utilitzem la funció <code>print()</code> per mostrar informació al terminal o pantalla. Aquesta funció pot mostrar qualsevol tipus de dada (text, números, llistes, etc.).</p>
+<p>Exemple:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Benvingut al curs de programació!"</span><span class="p">)</span>
+</span></code></pre></div>
+- Aquesta instrucció imprimeix el missatge "Benvingut al curs de programació!" a la pantalla.</p>
+<h3 id="fluxos-streams-i-tipus-de-dades">Fluxos (Streams) i Tipus de Dades</h3>
+<p>Els <strong>fluxos</strong> són canals mitjançant els quals les dades poden fluir entre el programa i els dispositius d'E/S. Els fluxos es poden dividir en dues categories principals: fluxos de <strong>bytes</strong> i fluxos de <strong>caràcters</strong>.</p>
+<h4 id="fluxos-de-bytes">Fluxos de Bytes</h4>
+<p>Els <strong>fluxos de bytes</strong> gestionen dades en format binari. Aquest tipus de flux s'utilitza quan es treballa amb fitxers binaris, com imatges, àudios o altres arxius que no són de text.</p>
+<p>Exemple de lectura d'un fitxer binari:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'imatge.png'</span><span class="p">,</span> <span class="s1">'rb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">fitxer</span><span class="p">:</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="n">contingut</span> <span class="o">=</span> <span class="n">fitxer</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span></code></pre></div>
+- <code>rb</code> indica que el fitxer s'obre en mode binari per llegir-lo.</p>
+<h4 id="fluxos-de-caracters">Fluxos de Caràcters</h4>
+<p>Els <strong>fluxos de caràcters</strong> gestionen dades textuals, com cadenes de caràcters o fitxers de text. Aquest tipus de flux és el més comú per a la sortida a la pantalla i per a llegir/escriure fitxers de text.</p>
+<p>Exemple de lectura d'un fitxer de text:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'document.txt'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">fitxer</span><span class="p">:</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="n">contingut</span> <span class="o">=</span> <span class="n">fitxer</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">contingut</span><span class="p">)</span>
+</span></code></pre></div>
+- <code>r</code> indica que obrim el fitxer en mode de lectura.</p>
+<hr />
+<h3 id="gestio-de-fitxers">Gestió de Fitxers</h3>
+<p>El treball amb <strong>fitxers</strong> és una part essencial de la E/S. Un fitxer és un conjunt de dades emmagatzemades en un dispositiu de memòria, com un disc dur. Els fitxers poden ser de text (com arxius <code>.txt</code>) o binaris (com imatges o documents en format <code>.pdf</code>).</p>
+<h4 id="obrir-i-tancar-fitxers">Obrir i Tancar Fitxers</h4>
+<p>Per treballar amb fitxers, primer hem d'<strong>obrir</strong> el fitxer. Un cop hem acabat de llegir o escriure, cal <strong>tancar</strong> el fitxer per alliberar els recursos. Utilitzant el context de <code>with</code>, Python tancarà automàticament el fitxer quan el bloc de codi hagi acabat.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Obrir un fitxer en mode lectura</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'exemple.txt'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">fitxer</span><span class="p">:</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    <span class="n">contingut</span> <span class="o">=</span> <span class="n">fitxer</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="c1"># El fitxer es tanca automàticament quan sortim del bloc 'with'</span>
+</span></code></pre></div>
+<h4 id="lectura-i-escriptura-de-fitxers">Lectura i Escriptura de Fitxers</h4>
+<p>La <strong>lectura</strong> i <strong>escriptura</strong> de fitxers es fa mitjançant mètodes específics com <code>read()</code>, <code>write()</code>, i <code>writelines()</code>.</p>
+<h4 id="exemple-descriptura-a-un-fitxer">Exemple d'escriptura a un fitxer:</h4>
+<p><div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'exemple.txt'</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">fitxer</span><span class="p">:</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    <span class="n">fitxer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"Hola món!"</span><span class="p">)</span>
+</span></code></pre></div>
+- <code>w</code> obre el fitxer en mode escriptura, creant el fitxer si no existeix o esborrant-lo si ja existeix.</p>
+<h4 id="exemple-de-lectura-dun-fitxer">Exemple de lectura d'un fitxer:</h4>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'exemple.txt'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">fitxer</span><span class="p">:</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    <span class="n">contingut</span> <span class="o">=</span> <span class="n">fitxer</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">contingut</span><span class="p">)</span>
+</span></code></pre></div>
+<hr />
+<h3 id="criteris-de-format-en-la-sortida">Criteris de Format en la Sortida</h3>
+<p>La <strong>sortida de dades</strong> no només es limita a mostrar informació simple. Sovint, cal formatar les dades per millorar la presentació o per adaptar-les a un format específic.</p>
+<h4 id="exemple-de-format-de-cadenes">Exemple de Format de Cadenes</h4>
+<p>En Python, podem utilitzar mètodes com <code>.format()</code> o f-strings per controlar com es mostren les dades:</p>
+<p><div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">nom</span> <span class="o">=</span> <span class="s2">"Joan"</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">edat</span> <span class="o">=</span> <span class="mi">25</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c1"># Utilitzant .format()</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"El meu nom és </span><span class="si">{}</span><span class="s2"> i tinc </span><span class="si">{}</span><span class="s2"> anys."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nom</span><span class="p">,</span> <span class="n">edat</span><span class="p">))</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="c1"># Utilitzant f-string</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"El meu nom és </span><span class="si">{</span><span class="n">nom</span><span class="si">}</span><span class="s2"> i tinc </span><span class="si">{</span><span class="n">edat</span><span class="si">}</span><span class="s2"> anys."</span><span class="p">)</span>
+</span></code></pre></div>
+- Els <strong>f-strings</strong> (disponibles a partir de Python 3.6) permeten inserir variables directament dins de la cadena de text, fent el codi més net i fàcil de llegir.</p>
+<hr />
+<h3 id="conclusions">Conclusions</h3>
+<p>La consola és un mitjà senzill i efectiu per a realitzar operacions d'E/S, i els fluxos proporcionen un mètode potent per gestionar la transferència de dades entre el programa i altres dispositius. També hem cobert tècniques bàsiques per la gestió de fitxers i formats de visualització, essencials per fer programes més funcionals i comprensibles.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+  
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

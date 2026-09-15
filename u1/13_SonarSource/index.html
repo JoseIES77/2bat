@@ -1,0 +1,862 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../img/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>13 SonarSource - 1. Fonaments bàsics de la programació</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://joamuran.net/curs24_25/css/material-just.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#que-es-sonarsource-i-com-enllacar-el-teu-repositori-de-github" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="1. Fonaments bàsics de la programació" class="md-header__button md-logo" aria-label="1. Fonaments bàsics de la programació" data-md-component="logo">
+      
+  <img src="../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            1. Fonaments bàsics de la programació
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              13 SonarSource
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="1. Fonaments bàsics de la programació" class="md-nav__button md-logo" aria-label="1. Fonaments bàsics de la programació" data-md-component="logo">
+      
+  <img src="../img/logo.png" alt="logo">
+
+    </a>
+    1. Fonaments bàsics de la programació
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inici
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1_IntroPRG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducció a la programació
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2_Introduccio_Python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducció a Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3_Preparant_entorn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Preparant l'entorn
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4_HelloWorld/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hello World!
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5_Estructura_programa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Estructura d'un programa en Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6_OperadorsExpresions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operadors y Expressions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7_Numeros_Cadenes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Números i Text
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../8_InputOutput/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entrada i Eixida Estàndar
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../9_Llistes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Llistes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_Funcions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Funcions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_PracticaFinal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pràctica Final UD1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12_ExtraGithub/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GitHub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#que-es-sonarsource-i-com-enllacar-el-teu-repositori-de-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Què és SonarSource i com enllaçar el teu repositori de GitHub
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Què és SonarSource i com enllaçar el teu repositori de GitHub">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#que-es-sonarsource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Què és SonarSource?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#com-enllacar-el-teu-repositori-de-github-amb-sonarqube" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Com enllaçar el teu repositori de GitHub amb SonarQube
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#avantatges-dutilitzar-sonarqube" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Avantatges d'utilitzar SonarQube
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-tipus-de-problemes-reportats-per-sonarsource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Tipus de problemes reportats per SonarSource
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#per-a-practicar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Per a practicar
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+  
+    <!-- Contingut per a altres pàgines -->
+    
+                  
+
+
+
+  <h1>13 SonarSource</h1>
+
+<h2 id="que-es-sonarsource-i-com-enllacar-el-teu-repositori-de-github">Què és SonarSource i com enllaçar el teu repositori de GitHub</h2>
+<h3 id="que-es-sonarsource">Què és SonarSource?</h3>
+<p><strong>SonarSource</strong> és una empresa que proporciona eines per a la qualitat del codi, amb una gran atenció a la seguretat i la netedat del codi font. La seva eina més coneguda és <strong>SonarQube</strong>, que permet analitzar codi font per detectar problemes de qualitat, com errors de seguretat, codi duplicat, bugs, i "code smells" (problemes de mantenibilitat).</p>
+<p>SonarQube ajuda els desenvolupadors a millorar la qualitat del seu codi i a garantir que el seu projecte mantingui una bona estructura i seguretat a mesura que es desenvolupa.</p>
+<p>El problema de SonarQube és que has de tindre'l allotjat en un servidor o al teu local, però SonarSource ens ofereix una sol·lució <strong>SaaS</strong> que solventa açò.</p>
+<div class="admonition note">
+<p class="admonition-title">Sabieu...</p>
+<p>Que és <strong>SaaS</strong>?</p>
+</div>
+<h3 id="com-enllacar-el-teu-repositori-de-github-amb-sonarqube">Com enllaçar el teu repositori de GitHub amb SonarQube</h3>
+<p>Per integrar SonarQube amb el teu repositori de GitHub, segueix aquests passos:</p>
+<h4 id="crea-un-compte-a-sonarsource">Crea un compte a SonarSource</h4>
+<ol>
+<li>Visita la pàgina web de <strong><a href="https://www.sonarsource.com/">SonarSource</a></strong>.</li>
+<li>Registra't amb el teu correu electrònic i crea el teu compte.</li>
+</ol>
+<h4 id="crea-un-projecte-a-sonarqube">Crea un projecte a SonarQube</h4>
+<ol>
+<li>Un cop registrat i iniciat sessió, crea un nou projecte des del tauler de control de SonarQube.</li>
+<li>Assigna un nom al teu projecte i selecciona el tipus de codi que vols analitzar (per exemple, Java, Python, JavaScript, etc.).</li>
+<li>SonarQube generarà un token d’autenticació que necessitaràs per enllaçar el teu repositori de GitHub.</li>
+</ol>
+<h4 id="enllacar-sonarqube-amb-github">Enllaçar SonarQube amb GitHub</h4>
+<ol>
+<li>A SonarQube, ves a la configuració del projecte i busca la secció <strong>GitHub Integration</strong>.</li>
+<li>Segueix les instruccions per autoritzar SonarQube a accedir al teu compte de GitHub.</li>
+<li>Una vegada autoritzat, SonarQube podrà analitzar el teu codi i generar informes de qualitat directament des de GitHub.</li>
+</ol>
+<p>Amb aquesta configuració, SonarQube realitzarà un seguiment del teu projecte, mostrant resultats detallats sobre la qualitat del codi i ajudant-te a mantenir el projecte en bon estat.</p>
+<h3 id="avantatges-dutilitzar-sonarqube">Avantatges d'utilitzar SonarQube</h3>
+<ul>
+<li><strong>Millora de la qualitat del codi</strong>: Identifica problemes de qualitat de codi abans que arriben a producció.</li>
+<li><strong>Seguretat</strong>: Detecta vulnerabilitats i errors de seguretat en el codi.</li>
+<li><strong>Automatització</strong>: Automatitza l'anàlisi de codi amb GitHub Actions i SonarQube.</li>
+<li><strong>Visualització clara</strong>: Proporciona informes detallats i fàcils de comprendre per als desenvolupadors.</li>
+</ul>
+<p>Per més informació sobre SonarQube i com integrar-lo amb GitHub, pots consultar la seva documentació oficial a: <a href="https://docs.sonarqube.org/latest/">SonarQube Documentation</a>.</p>
+<h3 id="6-tipus-de-problemes-reportats-per-sonarsource">6. Tipus de problemes reportats per SonarSource</h3>
+<p><strong>SonarSource</strong>, a través de <strong>SonarQube</strong>, reporta diversos tipus de problemes al codi font. Aquests problemes poden ser de diversos tipus, i es classifiquen principalment en:</p>
+<h4 id="1-bugs-errors-de-codi">1. Bugs (Errors de codi)</h4>
+<ul>
+<li><strong>Definició</strong>: Són defectes o problemes en el codi que poden fer que el sistema no funcioni com s'espera o generin comportaments inesperats. </li>
+<li><strong>Exemples</strong>:<ul>
+<li>Variables no inicialitzades.</li>
+<li>Condicions que no són mai vertaderes o mai falses.</li>
+<li>Codi redundant o innecessari.</li>
+<li>Accessos a recursos que poden generar excepcions (com intentar accedir a un objecte nul).</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-vulnerabilitats-de-seguretat">2. Vulnerabilitats de seguretat</h4>
+<ul>
+<li><strong>Definició</strong>: Són vulnerabilitats que poden ser explotades per atacs, comprometen la seguretat de l'aplicació i poden provocar filtracions de dades o altres tipus de breches de seguretat.</li>
+<li><strong>Exemples</strong>:<ul>
+<li>Injeccions SQL.</li>
+<li>No validació d'entrada, com a injeccions de comandaments o scripts maliciosos.</li>
+<li>Ús incorrecte de les contrasenyes o gestió insegura de credencials.</li>
+<li>Falta de xifrat de dades sensibles.</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-code-smells-olor-de-codi">3. Code Smells (Olor de codi)</h4>
+<ul>
+<li><strong>Definició</strong>: Els <em>code smells</em> són indicadors de que el codi pot tenir problemes de mantenibilitat, llegibilitat o eficàcia, però no necessàriament són errors crítics. Són signes de que el codi podria ser refactoritzat per millorar-ne la qualitat.</li>
+<li><strong>Exemples</strong>:<ul>
+<li>Funcions o mètodes que fan massa coses (funcions llargues).</li>
+<li>Duplicació de codi.</li>
+<li>Usar noms de variables o funcions poc descriptius.</li>
+<li>Codi mort que mai s'executa.</li>
+<li>Alta complexitat ciclomàtica (un codi excessivament complex que és difícil de seguir i mantenir).</li>
+</ul>
+</li>
+</ul>
+<h4 id="4-problemes-de-mantenibilitat">4. Problemes de mantenibilitat</h4>
+<ul>
+<li><strong>Definició</strong>: Són problemes que afecten la facilitat amb què el codi es pot mantenir, actualitzar i ampliar amb el temps.</li>
+<li><strong>Exemples</strong>:<ul>
+<li>Manca de comentaris o documentació en el codi.</li>
+<li>Funcions o mètodes que realitzen tasques molt específiques o que són difícils d'entendre.</li>
+<li>Massa dependències entre diferents parts del codi.</li>
+<li>Classes o mètodes que són massa grans o complexes.</li>
+</ul>
+</li>
+</ul>
+<h4 id="5-problemes-destil">5. Problemes d'estil</h4>
+<ul>
+<li><strong>Definició</strong>: Aquest tipus de problemes es relacionen amb la coherència en l'estil de codi seguit pel projecte, seguint les bones pràctiques establertes pel llenguatge de programació.</li>
+<li><strong>Exemples</strong>:<ul>
+<li>Manca d'espais en blanc entre operadors.</li>
+<li>Nombratge inconsistente de variables o classes.</li>
+<li>Ús inadequat d'estils i convencions de codi (com un nombre excessiu de línies en una funció, o l'ús de noms de funció poc clars).</li>
+<li>Falta de consistència en l'indentació o en l'ús de l'espai entre els elements del codi.</li>
+</ul>
+</li>
+</ul>
+<h4 id="6-problemes-de-rendiment">6. Problemes de rendiment</h4>
+<ul>
+<li><strong>Definició</strong>: Aquests problemes estan relacionats amb el rendiment de l'aplicació i la seva eficiència. Són qüestions que poden afectar la velocitat d'execució del codi o consumir recursos excessius.</li>
+<li><strong>Exemples</strong>:<ul>
+<li>Ús ineficient de recursos (per exemple, iteracions excessives o ús inadequat de memòria).</li>
+<li>Codi que provoca la càrrega excessiva del processador.</li>
+<li>Algoritmes subòptims.</li>
+</ul>
+</li>
+</ul>
+<h4 id="7-problemes-daccessibilitat">7. Problemes d'accessibilitat</h4>
+<ul>
+<li><strong>Definició</strong>: Són problemes que poden afectar la capacitat d'una persona amb discapacitat d'accedir al contingut o a les funcionalitats d'una aplicació web.</li>
+<li><strong>Exemples</strong>:<ul>
+<li>Falta de descripcions adequades per a imatges (atribut <code>alt</code>).</li>
+<li>Errors en l'estructura de la pàgina que dificultin la navegació amb teclat o lectors de pantalla.</li>
+<li>Falta de contrast adequat entre text i fons.</li>
+<li>Elements interactius que no tenen una etiqueta o un focus adequat per als usuaris amb discapacitat visual.</li>
+</ul>
+</li>
+</ul>
+<h4 id="8-cobertura-de-proves-insuficienta">8. Cobertura de proves insuficienta</h4>
+<ul>
+<li><strong>Definició</strong>: Son problemes relacionats amb la cobertura de les proves (unitàries, d'integració, etc.), indicant que el codi no està suficientment cobert per proves automàtiques.</li>
+<li><strong>Exemples</strong>:<ul>
+<li>Manca de proves per a mètodes o funcions importants.</li>
+<li>Alt percentatge de codi que no està cobert per proves unitàries.</li>
+</ul>
+</li>
+</ul>
+<h4 id="resum-dels-tipus-de-problemes-que-sonarsource-pot-detectar">Resum dels tipus de problemes que SonarSource pot detectar:</h4>
+<ul>
+<li><strong>Bugs</strong>: Errors que poden afectar la funcionalitat.</li>
+<li><strong>Vulnerabilitats</strong>: Problemes de seguretat que poden posar en perill l'aplicació.</li>
+<li><strong>Code Smells</strong>: Problemes de mantenibilitat i llegibilitat del codi.</li>
+<li><strong>Mantenibilitat</strong>: Codi difícil de mantenir o entendre.</li>
+<li><strong>Estilístics</strong>: Problemes de coherència i estil del codi.</li>
+<li><strong>Rendiment</strong>: Problemes que poden afectar l'eficiència de l'aplicació.</li>
+<li><strong>Accessibilitat</strong>: Dificultats per a usuaris amb discapacitat.</li>
+<li><strong>Cobertura de proves</strong>: Nivell de cobertura de les proves automàtiques.</li>
+</ul>
+<p>Aquesta classificació i detecció de problemes ajuda els equips de desenvolupament a mantenir el codi net, segur i eficient, evitant futurs errors i facilitant la col·laboració i el manteniment dels projectes.</p>
+<h3 id="per-a-practicar">Per a practicar</h3>
+<p>Descarrega el següent script en python polsant <a href="../script_errades.py">aci</a>, afegeix-lo al teu repositori, i mira en <a href="https://www.sonarsource.com/">SonarSource</a> el resultat de l'anàlisi. Series capaç d'interpretar els resultats?</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+  
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

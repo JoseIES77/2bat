@@ -1,0 +1,943 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../img/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>7.Exercicis - 3. E/S i Gestió de Dades</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://joamuran.net/curs24_25/css/material-just.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-gestio-de-fitxers-crear-llegir-i-afegir-dades" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="3. E/S i Gestió de Dades" class="md-header__button md-logo" aria-label="3. E/S i Gestió de Dades" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            3. E/S i Gestió de Dades
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              7.Exercicis
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="3. E/S i Gestió de Dades" class="md-nav__button md-logo" aria-label="3. E/S i Gestió de Dades" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    3. E/S i Gestió de Dades
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inici
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.Introduccio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduccio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.OperacionsBasiques/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operacions Bàsiques
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.FluxosDades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fluxos de Dades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.GestioFitxers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestió de Fitxers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.TecniquesAvan%C3%A7ades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tecniques Avançades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.Llibreries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Llibreries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-gestio-de-fitxers-crear-llegir-i-afegir-dades" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Gestió de Fitxers - Crear, Llegir i Afegir Dades
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Gestió de Fitxers - Crear, Llegir i Afegir Dades">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#descripcio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Descripció:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requisits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requisits:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-concatenacio-de-fitxers-de-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Concatenació de Fitxers de Text
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Concatenació de Fitxers de Text">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#descripcio_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Descripció:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requisits_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requisits:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-obrir-i-tancar-fitxers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Obrir i tancar fitxers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Obrir i tancar fitxers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#part-1-creacio-i-escriptura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 1: Creació i escriptura
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-2-creacio-exclusiva" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 2: Creació exclusiva
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-3-afegir-al-final" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 3: Afegir al final
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-4-llegir-i-tancar-fitxers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 4: Llegir i tancar fitxers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-organitzacio-de-fitxers-moure-fitxers-entre-directoris" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Organització de Fitxers - Moure Fitxers entre Directoris
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Organització de Fitxers - Moure Fitxers entre Directoris">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#descripcio_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Descripció:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requisits_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requisits:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-copia-de-directoris-complets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Còpia de Directoris Complets
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Còpia de Directoris Complets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#descripcio_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Descripció:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requisits_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requisits:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-lectura-i-escritura-de-fitxers-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Lectura i Escritura de Fitxers JSON
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Lectura i Escritura de Fitxers JSON">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#descripcio_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Descripció:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemple-de-diccionari-destudiant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemple de diccionari d'estudiant
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requisits_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requisits:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-lectura-i-escriptura-de-fitxers-csv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Lectura i Escriptura de Fitxers CSV
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Lectura i Escriptura de Fitxers CSV">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#descripcio_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Descripció:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requisits_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requisits:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-gestio-dun-sistema-de-registre-destudiants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Gestió d'un Sistema de Registre d'Estudiants
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Gestió d&#39;un Sistema de Registre d&#39;Estudiants">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#descripcio_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Descripció:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+  
+    <!-- Contingut per a altres pàgines -->
+    
+                  
+
+
+
+<h1 style="display:none;"># Inici</h1>
+
+<style>
+    .md-typeset h2{
+        font-weight: bold!important;
+    }
+</style>
+
+<h2 id="1-gestio-de-fitxers-crear-llegir-i-afegir-dades">1. Gestió de Fitxers - Crear, Llegir i Afegir Dades</h2>
+<h3 id="descripcio">Descripció:</h3>
+<p>Crea un programa que faci el següent:</p>
+<ol>
+<li>Demana a l'usuari que introdueixi el seu nom i edat.</li>
+<li>Guarda aquestes dades en un fitxer de text anomenat <code>dades_usuari.txt</code>.</li>
+<li>Llegeix el contingut del fitxer i mostra-ho per pantalla.</li>
+<li>Després, afegeix una nova línia amb una altra dada introduïda pel mateix usuari (per exemple, una nova afegida de ciutat).</li>
+</ol>
+<h3 id="requisits">Requisits:</h3>
+<ul>
+<li>Utilitza <strong>excepcions</strong> per gestionar possibles errors com "fitxer no trobat" o "accés denegat".</li>
+</ul>
+<h2 id="2-concatenacio-de-fitxers-de-text">2. Concatenació de Fitxers de Text</h2>
+<h3 id="descripcio_1">Descripció:</h3>
+<p>Crea un programa que llegeixi el contingut de diversos fitxers de text i els concatenï en un nou fitxer. El programa també ha de controlar que els fitxers d'origen existeixin abans de copiar-los.</p>
+<h3 id="requisits_1">Requisits:</h3>
+<ul>
+<li>Llegeix fitxers de text amb <code>read()</code>.</li>
+<li>Crea un nou fitxer de text i escriu-hi el contingut concatenat.</li>
+<li>Utilitza excepcions per verificar l'existència dels fitxers d'origen i gestionar possibles errors.</li>
+</ul>
+<h2 id="3-obrir-i-tancar-fitxers">3. Obrir i tancar fitxers</h2>
+<p><strong>Objectiu:</strong> Practicar l’obertura, escriptura, afegit i tancament de fitxers en Python.</p>
+<h3 id="part-1-creacio-i-escriptura">Part 1: Creació i escriptura</h3>
+<ol>
+<li>Crea un fitxer anomenat <code>prueba.txt</code> utilitzant el mode <code>'w'</code> i escriu-hi la frase <code>"Primera línia"</code>.</li>
+<li>Torna a obrir el fitxer amb mode <code>'w'</code> i escriu-hi <code>"Segona línia"</code>.</li>
+<li>Observa què passa amb el contingut anterior. Explica-ho amb les teves paraules.</li>
+</ol>
+<h3 id="part-2-creacio-exclusiva">Part 2: Creació exclusiva</h3>
+<ol>
+<li>Intenta obrir el fitxer <code>prueba.txt</code> amb mode <code>'x'</code> i escriu-hi <code>"Tercera línia"</code>.</li>
+<li>Observa què passa. Quina excepció et llença Python?</li>
+<li>Borra el fitxer i torna a fer el mateix pas. Què passa ara?</li>
+</ol>
+<h3 id="part-3-afegir-al-final">Part 3: Afegir al final</h3>
+<ol>
+<li>Obre el fitxer <code>prueba.txt</code> amb mode <code>'a'</code> i afegeix la línia <code>"Quarta línia"</code>.</li>
+<li>Torna a obrir el fitxer amb mode <code>'a'</code> i afegeix dues línies més: <code>"Cinquena línia"</code> i <code>"Sisena línia"</code>.</li>
+<li>Obre el fitxer en mode lectura (<code>'r'</code>) i mostra tot el contingut per pantalla.</li>
+</ol>
+<h3 id="part-4-llegir-i-tancar-fitxers">Part 4: Llegir i tancar fitxers</h3>
+<ol>
+<li>Obre el fitxer amb mode <code>'r'</code> i llegeix tot el contingut amb <code>.read()</code>.</li>
+<li>Tanca el fitxer utilitzant <code>.close()</code>.</li>
+<li>Prova d’obrir un fitxer que no existeix amb mode <code>'r'</code>. Quin error obtens?</li>
+</ol>
+<h2 id="4-organitzacio-de-fitxers-moure-fitxers-entre-directoris">4. Organització de Fitxers - Moure Fitxers entre Directoris</h2>
+<h3 id="descripcio_2">Descripció:</h3>
+<p>Crea un programa que mogui un fitxer d'un directori a un altre. El programa també ha de llistar els fitxers en el directori de destinació després de moure el fitxer.</p>
+<h3 id="requisits_2">Requisits:</h3>
+<ul>
+<li>Utilitza els mòduls <code>os</code> o <code>pathlib</code> per moure fitxers.</li>
+<li>Gestiona <strong>excepcions</strong> si el fitxer no es pot moure o si el directori no existeix.</li>
+</ul>
+<h2 id="5-copia-de-directoris-complets">5. Còpia de Directoris Complets</h2>
+<h3 id="descripcio_3">Descripció:</h3>
+<p>Crea un programa que copiï tot el contingut d'un directori (fitxers i subdirectoris) a un altre directori. El programa ha de mantenir la mateixa estructura de directoris.</p>
+<h3 id="requisits_3">Requisits:</h3>
+<ul>
+<li>Utilitza <code>shutil.copytree()</code> o una combinació de mètodes <code>os</code> i <code>shutil</code> per copiar els fitxers i subdirectoris.</li>
+<li>Gestiona excepcions per garantir que el directori d'origen existeixi i que el directori de destinació sigui vàlid.</li>
+</ul>
+<h2 id="6-lectura-i-escritura-de-fitxers-json">6. Lectura i Escritura de Fitxers JSON</h2>
+<h3 id="descripcio_4">Descripció:</h3>
+<p>Crea un programa que llegeixi un fitxer JSON que conté un diccionari amb les dades d'un estudiant (nom, edat, nota), el modifiqui per afegir una nova dada (com una nova assignatura), i el guardi en el mateix fitxer.</p>
+<p>Pots descarregar el CSV <a href="../material/dades_exercici.json">fent click ací</a></p>
+<h3 id="exemple-de-diccionari-destudiant">Exemple de diccionari d'estudiant</h3>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="err">es</span><span class="kc">tu</span><span class="err">dia</span><span class="kc">nt</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="nt">"nom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joan"</span><span class="p">,</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">"edat"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nt">"nota"</span><span class="p">:</span><span class="w"> </span><span class="mf">8.5</span><span class="p">,</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nt">"assignatures"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Matemàtiques"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Física"</span><span class="p">]</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="requisits_4">Requisits:</h3>
+<ul>
+<li>Utilitza el mòdul <code>json</code> per gestionar els fitxers JSON.</li>
+<li>Gestiona <strong>excepcions</strong> per assegurar-te que el fitxer existeix i que el contingut és vàlid.</li>
+</ul>
+<h2 id="7-lectura-i-escriptura-de-fitxers-csv">7. Lectura i Escriptura de Fitxers CSV</h2>
+<h3 id="descripcio_5">Descripció:</h3>
+<p>Crea un programa que llegeixi un fitxer CSV, n'extregui les dades i les modifiqui (per exemple, afegint una nova fila o modificant una existent). Després, guarda les dades modificades en un nou fitxer CSV.</p>
+<p>Pots descarregar el CSV <a href="../material/dades_exercici.csv">fent click ací</a></p>
+<h3 id="requisits_5">Requisits:</h3>
+<ul>
+<li>Utilitza el mòdul <code>csv</code> per llegir i escriure fitxers CSV.</li>
+<li>Llegeix les dades d'un fitxer CSV i mostra-les per pantalla.</li>
+<li>Modifica les dades (per exemple, afegint una nova fila amb dades de l'usuari).</li>
+<li>Guarda les dades modificades en un nou fitxer CSV.</li>
+<li>Gestiona excepcions per assegurar-se que el fitxer CSV existeix i és vàlid.</li>
+</ul>
+<hr />
+<h2 id="8-gestio-dun-sistema-de-registre-destudiants">8. Gestió d'un Sistema de Registre d'Estudiants</h2>
+<h3 id="descripcio_6">Descripció:</h3>
+<p>Imagina que treballes en una aplicació per gestionar informació sobre estudiants d'una escola. Cada estudiant té un nom, una edat, una nota i una llista d'assignatures. La informació dels estudiants es guarda en un fitxer <strong>JSON</strong> i <strong>CSV</strong>. L'objectiu és llegir i escriure fitxers amb la informació dels estudiants, moure fitxers entre directoris per organitzar-los millor, i afegir nous estudiants mitjançant l'entrada d'usuari.</p>
+<h4 id="escenari">Escenari:</h4>
+<ol>
+<li>El sistema llegeix un fitxer JSON anomenat <code>estudiants.json</code> que conté les dades dels estudiants.</li>
+<li>Després, el sistema ha de:</li>
+<li>Afegir un nou estudiant amb nom, edat, nota i assignatures.</li>
+<li>Desar la informació actualitzada en el fitxer <code>estudiants.json</code>.</li>
+<li>Crear un fitxer <strong>CSV</strong> anomenat <code>estudiants.csv</code> amb la mateixa informació dels estudiants (nom, edat, nota, assignatures).</li>
+<li>Si el fitxer CSV ja existeix, el programa haurà de moure'l a un directori de "fitxers antics".</li>
+<li>Finalment, el sistema ha de gestionar errors en tots els passos per assegurar-se que els fitxers existeixin i que els formats siguin vàlids.</li>
+</ol>
+<h4 id="requisits_6">Requisits:</h4>
+<ol>
+<li><strong>Lectura i escriptura de fitxers JSON i CSV</strong>.</li>
+<li><strong>Gestió d'errors</strong> en la lectura/escriptura de fitxers.</li>
+<li><strong>Mou fitxers</strong> entre directoris si el fitxer CSV ja existeix.</li>
+<li><strong>Afegir nous estudiants</strong> a les dades existents.</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+  
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

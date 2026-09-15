@@ -1,0 +1,651 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../img/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>9.Projecte Part1 - 2. Estructures de control i depuració</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://joamuran.net/curs24_25/css/material-just.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduccio-al-projecte-gestio-dentrades-per-a-un-esdeveniment" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="2. Estructures de control i depuració" class="md-header__button md-logo" aria-label="2. Estructures de control i depuració" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            2. Estructures de control i depuració
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              9.Projecte Part1
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="2. Estructures de control i depuració" class="md-nav__button md-logo" aria-label="2. Estructures de control i depuració" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    2. Estructures de control i depuració
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inici
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.IntroControlDepu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducció
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.EstructuresSeleccio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Estructures de Selecció
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.EstructuresRepeticio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Estructures de Repetició
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.EstructuresSalt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Estructures de Salt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.Excepcions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Excepcions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.Asercions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Assercions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.DepuracioDocumentacio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Depuració i Documentació
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduccio-al-projecte-gestio-dentrades-per-a-un-esdeveniment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introducció al Projecte: Gestió d'Entrades per a un Esdeveniment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Introducció al Projecte: Gestió d&#39;Entrades per a un Esdeveniment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#descripcio-del-projecte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Descripció del Projecte
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seguit-del-projecte-en-les-unitats-posteriors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Seguit del projecte en les unitats posteriors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#continguts-i-criteris-davaluacio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Continguts i Criteris d'Avaluació
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#com-esvaluem-cada-part-del-projecte-en-aquesta-unitat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Com esvaluem cada part del projecte en aquesta unitat?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+  
+    <!-- Contingut per a altres pàgines -->
+    
+                  
+
+
+
+  <h1>9.Projecte Part1</h1>
+
+<h2 id="introduccio-al-projecte-gestio-dentrades-per-a-un-esdeveniment">Introducció al Projecte: Gestió d'Entrades per a un Esdeveniment</h2>
+<h3 id="descripcio-del-projecte">Descripció del Projecte</h3>
+<p>En aquest projecte, crearem un sistema de <strong>gestió d'entrades per a un esdeveniment</strong> (per exemple, un concert). El sistema permetrà als usuaris <strong>reservar seients</strong> per a un esdeveniment, <strong>comprovar quins seients estan ocupats o disponibles</strong>, i gestionar errors de manera eficient. El projecte es desenvoluparà de manera progressiva a través de les unitats del curs, i cada unitat afegirà funcionalitats noves al sistema.</p>
+<h4 id="funcionalitats-que-es-treballaran-en-aquesta-unitat">Funcionalitats que es treballaran en aquesta unitat:</h4>
+<ol>
+<li><strong>Reserva de seients</strong>: Els usuaris podran reservar seients, però el sistema haurà de verificar que el seient no estigui ocupat.</li>
+<li><strong>Comprovació de seients disponibles</strong>: Els usuaris podran consultar els seients disponibles o ocupats.</li>
+<li><strong>Control d'errors</strong>: El sistema ha de ser capaç de gestionar errors, com la introducció d'un número de seient invàlid.</li>
+<li><strong>Traçades per a depuració</strong>: Registra totes les operacions realitzades (com les reserves i els intents fallits).</li>
+</ol>
+<hr />
+<h3 id="seguit-del-projecte-en-les-unitats-posteriors">Seguit del projecte en les unitats posteriors</h3>
+<ul>
+<li><strong>Unitat 2 (Estructures de dades)</strong>: Afegirem l'ús de fitxers per emmagatzemar les dades i estructures de dades més complexes (com diccionaris o llistes de diccionaris) per gestionar millor les reserves.</li>
+<li><strong>Unitat 3 (Programació Orientada a Objectes)</strong>: Crearem classes i objectes per gestionar les reserves de manera més estructurada i modular.</li>
+<li><strong>Unitat 4 (Interfície Gràfica d'Usuari)</strong>: Afegirem una interfície gràfica utilitzant biblioteques com <code>Tkinter</code>, per millorar la interacció de l'usuari amb el sistema.</li>
+</ul>
+<hr />
+<h3 id="continguts-i-criteris-davaluacio">Continguts i Criteris d'Avaluació</h3>
+<p>Aquesta primera unitat es centrarà en el treball de les <strong>estructures de control</strong>, <strong>depuració</strong> i <strong>control d'excepcions</strong>. Els continguts i criteris d’avaluació treballats en aquesta unitat seran els següents:</p>
+<h4 id="continguts-que-es-treballaran"><strong>Continguts que es treballaran:</strong></h4>
+<ul>
+<li><strong>Estructures de selecció</strong>: Utilitzar <code>if</code>, <code>elif</code>, i <code>else</code> per gestionar el flux del programa en funció de condicions.</li>
+<li><strong>Estructures de repetició</strong>: Aplicar bucles <code>while</code> i <code>for</code> per gestionar iteracions.</li>
+<li><strong>Estructures de salt</strong>: Utilitzar <code>break</code>, <code>continue</code> i <code>pass</code> per controlar el flux dins dels bucles.</li>
+<li><strong>Control d'excepcions</strong>: Utilitzar <code>try</code> i <code>except</code> per gestionar errors i assegurar que el programa segueix funcionant correctament.</li>
+<li><strong>Traçades</strong>: Utilitzar el mòdul <code>logging</code> per registrar accions i errors del programa.</li>
+</ul>
+<h4 id="criteris-davaluacio-coberts"><strong>Criteris d'Avaluació coberts:</strong></h4>
+<ul>
+<li><strong>a)</strong> S'ha escrit i provat codi que fa ús d'estructures de selecció (utilitzant <code>if</code>, <code>elif</code> i <code>else</code>).</li>
+<li><strong>b)</strong> S'han utilitzat estructures de repetició (com <code>while</code> i <code>for</code>) per controlar el flux de l'aplicació.</li>
+<li><strong>c)</strong> S'han reconegut les possibilitats de les sentències de salt (<code>break</code>, <code>continue</code> i <code>pass</code>).</li>
+<li><strong>d)</strong> S'ha escrit codi utilitzant control d'excepcions per gestionar errors com la divisió per zero o entrades invàlides.</li>
+<li><strong>f)</strong> S'han provat i depurat els programes, utilitzant tècniques com prints i el depurador <code>pdb</code>.</li>
+<li><strong>g)</strong> S'ha comentat i documentat el codi, utilitzant comentaris i docstrings per explicar les funcions i els blocs de codi.</li>
+</ul>
+<hr />
+<h3 id="com-esvaluem-cada-part-del-projecte-en-aquesta-unitat">Com esvaluem cada part del projecte en aquesta unitat?</h3>
+<h4 id="1-registre-de-seients">1. <strong>Registre de Seients</strong>:</h4>
+<ul>
+<li><strong>Criteris d'Avaluació</strong>: S'ha utilitzat una estructura de selecció per comprovar la disponibilitat dels seients i gestionar l'entrada de l'usuari.</li>
+<li><strong>Continguts avalats</strong>: <ul>
+<li>Estructures de selecció (<code>if</code>, <code>elif</code>, <code>else</code>).</li>
+<li>Control d'excepcions (gestió d'errors de tipus).</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-comprovacio-de-seients-disponibles">2. <strong>Comprovació de Seients Disponibles</strong>:</h4>
+<ul>
+<li><strong>Criteris d'Avaluació</strong>: S'ha utilitzat un bucle per mostrar els seients disponibles i ocupats.</li>
+<li><strong>Continguts avalats</strong>: <ul>
+<li>Estructures de repetició (<code>while</code> o <code>for</code>).</li>
+<li>Traçades amb el mòdul <code>logging</code> per mostrar l'estat dels seients.</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-control-derrors-introduccio-dentrades-invalides">3. <strong>Control d'Errors (Introducció d'Entrades Invàlides)</strong>:</h4>
+<ul>
+<li><strong>Criteris d'Avaluació</strong>: S'ha implementat control d'excepcions per gestionar errors d'entrada incorrecta (per exemple, si l'usuari introdueix un número de seient fora de rang).</li>
+<li><strong>Continguts avalats</strong>: <ul>
+<li>Control d'excepcions (<code>try</code> i <code>except</code>).</li>
+<li>Traçades per registrar errors (amb <code>logging</code>).</li>
+</ul>
+</li>
+</ul>
+<h4 id="4-tracades-i-depuracio">4. <strong>Traçades i Depuració</strong>:</h4>
+<ul>
+<li><strong>Criteris d'Avaluació</strong>: S'ha utilitzat el mòdul <code>logging</code> per registrar totes les accions del sistema.</li>
+<li><strong>Continguts avalats</strong>: <ul>
+<li>Traçades per monitoritzar el flux del programa.</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+  
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

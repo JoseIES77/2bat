@@ -1,0 +1,813 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../1.Introduccio/">
+      
+      
+        <link rel="next" href="../3.FluxosDades/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../img/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Operacions Bàsiques - 3. E/S i Gestió de Dades</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://joamuran.net/curs24_25/css/material-just.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#2-operacions-basiques-dentrada-i-sortida-a-la-consola" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="3. E/S i Gestió de Dades" class="md-header__button md-logo" aria-label="3. E/S i Gestió de Dades" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            3. E/S i Gestió de Dades
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Operacions Bàsiques
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="3. E/S i Gestió de Dades" class="md-nav__button md-logo" aria-label="3. E/S i Gestió de Dades" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    3. E/S i Gestió de Dades
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inici
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.Introduccio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduccio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operacions Bàsiques
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operacions Bàsiques
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#2-operacions-basiques-dentrada-i-sortida-a-la-consola" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Operacions bàsiques d'Entrada i Sortida a la Consola
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Operacions bàsiques d&#39;Entrada i Sortida a la Consola">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-entrada-de-dades-mitjancant-el-teclat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1. Entrada de dades mitjançant el teclat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-sortida-de-dades-a-la-pantalla" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2. Sortida de dades a la pantalla
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-aplicacio-de-formats-per-a-la-visualitzacio-de-dades" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3. Aplicació de formats per a la visualització de dades
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-exemple-practic-dentrada-i-sortida-a-la-consola" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4. Exemple pràctic d'entrada i sortida a la consola
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.FluxosDades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fluxos de Dades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.GestioFitxers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gestió de Fitxers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.TecniquesAvan%C3%A7ades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tecniques Avançades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.Llibreries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Llibreries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#2-operacions-basiques-dentrada-i-sortida-a-la-consola" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Operacions bàsiques d'Entrada i Sortida a la Consola
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Operacions bàsiques d&#39;Entrada i Sortida a la Consola">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-entrada-de-dades-mitjancant-el-teclat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1. Entrada de dades mitjançant el teclat
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-sortida-de-dades-a-la-pantalla" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2. Sortida de dades a la pantalla
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-aplicacio-de-formats-per-a-la-visualitzacio-de-dades" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3. Aplicació de formats per a la visualització de dades
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-exemple-practic-dentrada-i-sortida-a-la-consola" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4. Exemple pràctic d'entrada i sortida a la consola
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+  
+    <!-- Contingut per a altres pàgines -->
+    
+                  
+
+
+
+<h1 style="display:none;"># Inici</h1>
+
+<h2 id="2-operacions-basiques-dentrada-i-sortida-a-la-consola">2. Operacions bàsiques d'Entrada i Sortida a la Consola</h2>
+<h3 id="21-entrada-de-dades-mitjancant-el-teclat">2.1. Entrada de dades mitjançant el teclat</h3>
+<p>L'<strong>entrada de dades</strong> a través del teclat és una operació fonamental en qualsevol programa interactiu. En Python, utilitzem la funció <code>input()</code> per obtenir dades de l'usuari. El valor retornat per <code>input()</code> és sempre una cadena de caràcters, independentment del tipus de dada que l'usuari introdueixi.</p>
+<p>Exemple bàsic:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">nom</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Introdueix el teu nom: "</span><span class="p">)</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Hola, "</span> <span class="o">+</span> <span class="n">nom</span><span class="p">)</span>
+</span></code></pre></div>
+En aquest cas, el programa demana a l'usuari que introdueixi el seu nom i després imprimeix un missatge personalitzat.</p>
+<h4 id="conversio-de-tipus-de-dades">Conversió de tipus de dades</h4>
+<p>Si l'usuari introdueix un número però necessitem realitzar operacions matemàtiques, hem de convertir la cadena a un tipus numèric.</p>
+<p>Exemple de conversió:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">edat</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Quants anys tens? "</span><span class="p">))</span>
+</span></code></pre></div>
+Aquí, la resposta de l'usuari es converteix en un nombre enter perquè es pugui fer servir en càlculs.</p>
+<h3 id="22-sortida-de-dades-a-la-pantalla">2.2. Sortida de dades a la pantalla</h3>
+<p>La sortida a la pantalla es realitza habitualment mitjançant la funció <code>print()</code>. Aquesta funció permet mostrar qualsevol tipus de dada al terminal o pantalla. El més comú és mostrar missatges informatius, resultats de càlculs o altres tipus de dades.</p>
+<p>Exemple bàsic:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Benvingut al curs de programació!"</span><span class="p">)</span>
+</span></code></pre></div>
+Aquesta instrucció imprimeix el missatge "Benvingut al curs de programació!" a la pantalla.</p>
+<h4 id="personalitzacio-de-la-sortida">Personalització de la sortida</h4>
+<p>La funció <code>print()</code> permet diversos paràmetres per personalitzar com es mostra la informació. Per exemple, podem utilitzar els paràmetres <code>sep</code> i <code>end</code> per controlar els separadors entre valors i el que es mostra al final de la línia.</p>
+<p>Exemple:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Hola"</span><span class="p">,</span> <span class="s2">"Món"</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">" "</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">"!"</span><span class="p">)</span>
+</span></code></pre></div>
+En aquest cas:
+- <code>sep=" "</code> defineix que el separador entre "Hola" i "Món" sigui un espai.
+- <code>end="!"</code> indica que el caràcter que es mostra al final de la línia serà un signe d'exclamació en comptes d'un salt de línia per defecte.</p>
+<h3 id="23-aplicacio-de-formats-per-a-la-visualitzacio-de-dades">2.3. Aplicació de formats per a la visualització de dades</h3>
+<p>La personalització de la sortida també pot implicar el format de les dades. Python ofereix diverses maneres de controlar com es mostren els valors.</p>
+<h4 id="format-de-cadenes-amb-format">Format de cadenes amb <code>.format()</code></h4>
+<p>Utilitzant el mètode <code>.format()</code>, podem inserir variables dins de cadenes de manera més ordenada.</p>
+<p>Exemple:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">nom</span> <span class="o">=</span> <span class="s2">"Joan"</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">edat</span> <span class="o">=</span> <span class="mi">25</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"El meu nom és </span><span class="si">{}</span><span class="s2"> i tinc </span><span class="si">{}</span><span class="s2"> anys."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nom</span><span class="p">,</span> <span class="n">edat</span><span class="p">))</span>
+</span></code></pre></div>
+Aquesta línia imprimeix: <code>El meu nom és Joan i tinc 25 anys.</code>.</p>
+<h4 id="f-strings-disponibles-a-partir-de-python-36">F-strings (disponibles a partir de Python 3.6)</h4>
+<p>Els <strong>f-strings</strong> ofereixen una manera més llegible i senzilla d'inserir variables dins d'una cadena de caràcters.</p>
+<p>Exemple:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">nom</span> <span class="o">=</span> <span class="s2">"Joan"</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">edat</span> <span class="o">=</span> <span class="mi">25</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"El meu nom és </span><span class="si">{</span><span class="n">nom</span><span class="si">}</span><span class="s2"> i tinc </span><span class="si">{</span><span class="n">edat</span><span class="si">}</span><span class="s2"> anys."</span><span class="p">)</span>
+</span></code></pre></div>
+Aquesta línia imprimeix també: <code>El meu nom és Joan i tinc 25 anys.</code>. Els f-strings són més eficients i llegibles, especialment en casos on cal inserir moltes variables dins d'una cadena.</p>
+<h4 id="opcio-alternativa-utilitzar-concatenacio-de-cadenes">Opció alternativa: Utilitzar concatenació de cadenes</h4>
+<p>Una altra manera de fer-ho és utilitzant la concatenació de cadenes amb el operador +. Aquesta opció no és tan neta ni tan eficient com les anteriors, especialment quan es treballa amb moltes variables, però és una opció vàlida.</p>
+<p>Exemple:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">nom</span> <span class="o">=</span> <span class="s2">"Joan"</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">edat</span> <span class="o">=</span> <span class="mi">25</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"El meu nom és "</span> <span class="o">+</span> <span class="n">nom</span> <span class="o">+</span> <span class="s2">" i tinc "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">edat</span><span class="p">)</span> <span class="o">+</span> <span class="s2">" anys."</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Aquesta línia també imprimeix: </p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>El meu nom és Joan i tinc 25 anys.
+</span></code></pre></div>
+<ul>
+<li>
+<p><strong>Contres de la concatenació amb +:</strong></p>
+<ul>
+<li>
+<p>Menys llegible: Quan treballem amb diverses variables, el codi pot resultar menys llegible perquè hem de garantir que totes les parts siguin cadenes (per exemple, <strong>la conversió de edat a cadena amb str(edat)</strong>), a més de que cal tenir en compte els espais entre text i variables.</p>
+</li>
+<li>
+<p>Menys eficient: Si el codi es fa més complex amb moltes concatenacions, el rendiment pot veure's afectat, ja que cada concatenació crea una nova cadena, mentre que .format() i f-strings poden ser més eficients.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="24-exemple-practic-dentrada-i-sortida-a-la-consola">2.4. Exemple pràctic d'entrada i sortida a la consola</h3>
+<p>Vegem un exemple pràctic on combinarem l'entrada i la sortida per a realitzar una petita aplicació de càlcul de l'edat.</p>
+<h4 id="exemple-calcul-de-lany-de-naixement">Exemple: Càlcul de l'any de naixement</h4>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Demanem l'edat a l'usuari</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">edat</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Quants anys tens? "</span><span class="p">))</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c1"># Calculem l'any de naixement</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="n">any_actual</span> <span class="o">=</span> <span class="mi">2025</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="n">any_naixement</span> <span class="o">=</span> <span class="n">any_actual</span> <span class="o">-</span> <span class="n">edat</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="c1"># Mostrem el resultat</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Si tens </span><span class="si">{</span><span class="n">edat</span><span class="si">}</span><span class="s2"> anys, vas néixer al </span><span class="si">{</span><span class="n">any_naixement</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
+</span></code></pre></div>
+<p>En aquest exemple:
+1. L'usuari introdueix la seva edat.
+2. El programa calcula l'any de naixement subtraient l'edat de l'any actual.
+3. El resultat es mostra a la pantalla amb un missatge personalitzat.</p>
+<h4 id="casuistiques-a-tenir-en-compte">Casuístiques a tenir en compte:</h4>
+<h5 id="1-lusuari-introdueix-un-valor-no-numeric">1. L'usuari introdueix un valor no numèric</h5>
+<ul>
+<li>Si l'usuari introdueix un valor que no pot ser convertit a enter, com una cadena de text o un caràcter especial, el programa generarà una excepció <code>ValueError</code>.</li>
+</ul>
+<p><strong>Solució:</strong>
+Utilitza un bloc <code>try-except</code> per capturar errors i tornar a demanar l'entrada de manera correcta.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    <span class="k">try</span><span class="p">:</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>        <span class="n">edat</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Quants anys tens? "</span><span class="p">))</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>        <span class="k">break</span>  <span class="c1"># Sortir del bucle quan la dada és correcta</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">"Per favor, introdueix un número vàlid."</span><span class="p">)</span>
+</span></code></pre></div>
+<h5 id="2-lusuari-introdueix-una-edat-negativa">2. L'usuari introdueix una edat negativa</h5>
+<ul>
+<li>Si l'usuari introdueix un valor negatiu per l'edat, això podria no ser lògic en la majoria de casos, però el programa no generarà un error perquè <code>int()</code> accepta valors negatius. El problema és que l'any de naixement seria incorrecte.</li>
+</ul>
+<p><strong>Solució:</strong>
+Afegir una comprovació per assegurar que l'edat sigui un valor positiu.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>    <span class="k">try</span><span class="p">:</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>        <span class="n">edat</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Quants anys tens? "</span><span class="p">))</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>        <span class="k">if</span> <span class="n">edat</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>            <span class="nb">print</span><span class="p">(</span><span class="s2">"L'edat no pot ser negativa. Introdueix una edat vàlida."</span><span class="p">)</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>        <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>            <span class="k">break</span>  <span class="c1"># Sortir del bucle quan l'edat és correcta</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">"Per favor, introdueix un número vàlid."</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">ATENCIÓ</p>
+<p>No cregueu que es podria fer millor d'altra manera? Vos sona d'algo assert?</p>
+</div>
+<h5 id="3-lusuari-introdueix-lany-actual-incorrectament">3. L'usuari introdueix l'any actual incorrectament</h5>
+<ul>
+<li>Si l'usuari vol calcular l'any de naixement manualment, el programa assumeix que l'any actual és correcte (2025). Però si l'usuari introdueix l'any incorrectament, la resta del càlcul serà errònia.</li>
+</ul>
+<p><strong>Solució:</strong>
+Afegir la possibilitat de permetre a l'usuari introduir l'any actual.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>    <span class="k">try</span><span class="p">:</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>        <span class="n">any_actual</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Quin any és actualment? "</span><span class="p">))</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>        <span class="k">break</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">"Per favor, introdueix un any vàlid."</span><span class="p">)</span>
+</span></code></pre></div>
+<h5 id="4-format-especific">4. Format específic</h5>
+<ul>
+<li>Potser algú vol un format específic de resultat, com "Vas néixer al 1995. Gràcies per introduir la teva edat!"</li>
+</ul>
+<p><strong>Solució:</strong>
+Fer servir el <strong>format de cadenes</strong> per afegir més informació personalitzada.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Si tens </span><span class="si">{</span><span class="n">edat</span><span class="si">}</span><span class="s2"> anys, vas néixer al </span><span class="si">{</span><span class="n">any_naixement</span><span class="si">}</span><span class="s2">. Gràcies per introduir la teva edat!"</span><span class="p">)</span>
+</span></code></pre></div>
+<h5 id="5-comprovacio-de-limits-dedat">5. Comprovació de límits d'edat</h5>
+<p>Si l'usuari introdueix una edat excessivament alta o baixa (per exemple, 200 anys), es pot afegir un control de límits per garantir que els valors siguin realistes.</p>
+<p><strong>Solució:</strong>
+Afegir una comprovació de rang per a l'edat.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>    <span class="k">try</span><span class="p">:</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>        <span class="n">edat</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Quants anys tens? "</span><span class="p">))</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>        <span class="k">if</span> <span class="n">edat</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">edat</span> <span class="o">&gt;=</span> <span class="mi">120</span><span class="p">:</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>            <span class="nb">print</span><span class="p">(</span><span class="s2">"Per favor, introdueix una edat vàlida entre 1 i 120 anys."</span><span class="p">)</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>        <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>            <span class="k">break</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">"Per favor, introdueix un número vàlid."</span><span class="p">)</span>
+</span></code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+  
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,73 @@
+1. Introducció a les Estructures de Dades Avançades
+
+1.1 Tipus d'estructures de dades en Python
+
+Definició i importància de les estructures de dades
+
+Diferència entre estructures estàtiques i dinàmiques (C6.1)
+
+Casos d'ús comuns per a cada tipus d'estructura
+
+1.2 Visió general de les matrius (arrays)
+
+Què són les matrius? (C6.2)
+
+Diferència entre llistes i matrius (unidimensionals i multidimensionals)
+
+Quan utilitzar matrius i matrius multidimensionals davant d'altres estructures de dades
+
+2. Matrius (Arrays) i Matrius Multidimensionals
+
+2.1 Creació de matrius unidimensionals i multidimensionals
+
+Creació de matrius d'una dimensió
+
+Creació de matrius de dues o més dimensions
+
+Accés i manipulació d'elements en matrius multidimensionals
+
+2.2 Operacions bàsiques amb matrius
+
+Sumar, restar, multiplicar i dividir elements de matrius
+
+Transposició d'una matriu
+
+Operacions entre matrius
+
+2.3 Comparativa entre llistes i matrius
+
+Diferències en la manera d'emmagatzemar i manipular dades
+
+Quan és més eficaç utilitzar una matriu en lloc d'una llista
+
+3. Manipulació de Cadenes de Text i Expressions Regulars
+
+3.1 Cadenes de caràcters
+
+Creació i manipulació de cadenes en Python (C6.5)
+
+Operacions comunes: concatenació, tallades (slicing), cerca de subcadenes
+
+3.2 Expressions Regulars
+
+Introducció a les expressions regulars (C6.6)
+
+Sintaxi bàsica: coincidència de patrons, agrupaments, etc.
+
+Exercicis pràctics per buscar patrons dins de cadenes de text
+
+4. Operacions Agregades: Filtració, Reducció i Recol·lecció
+
+4.1 Operacions bàsiques d'agregació
+
+Filtració de dades amb condicions (usant filter(), comprensions de llistes)
+
+Reducció de dades amb reduce()
+
+Recol·lecció de dades amb map()
+
+4.2 Aplicacions de les operacions agregades
+
+Filtrar valors, reduir llistes i transformar dades en altres formats
+
+Casos pràctics amb matrius i diccionaris

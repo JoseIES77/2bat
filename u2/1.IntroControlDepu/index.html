@@ -1,0 +1,758 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../2.EstructuresSeleccio/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../img/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Introducció - 2. Estructures de control i depuració</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://joamuran.net/curs24_25/css/material-just.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-introduccio-a-les-estructures-de-control-i-depuracio" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="2. Estructures de control i depuració" class="md-header__button md-logo" aria-label="2. Estructures de control i depuració" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            2. Estructures de control i depuració
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Introducció
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="2. Estructures de control i depuració" class="md-nav__button md-logo" aria-label="2. Estructures de control i depuració" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    2. Estructures de control i depuració
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inici
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducció
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introducció
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduccio-a-les-estructures-de-control-i-depuracio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Introducció a les Estructures de Control i Depuració
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Introducció a les Estructures de Control i Depuració">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#que-son-les-estructures-de-control-i-la-depuracio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Què són les estructures de control i la depuració?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#breu-historia-de-les-estructures-de-control-i-la-depuracio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Breu història de les estructures de control i la depuració
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tipus-destructures-de-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tipus d'estructures de control
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#que-es-la-depuracio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Què és la depuració?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conclusions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.EstructuresSeleccio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Estructures de Selecció
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.EstructuresRepeticio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Estructures de Repetició
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.EstructuresSalt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Estructures de Salt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.Excepcions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Excepcions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../6.Asercions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Assercions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../7.DepuracioDocumentacio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Depuració i Documentació
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduccio-a-les-estructures-de-control-i-depuracio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Introducció a les Estructures de Control i Depuració
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Introducció a les Estructures de Control i Depuració">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#que-son-les-estructures-de-control-i-la-depuracio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Què són les estructures de control i la depuració?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#breu-historia-de-les-estructures-de-control-i-la-depuracio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Breu història de les estructures de control i la depuració
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tipus-destructures-de-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tipus d'estructures de control
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#que-es-la-depuracio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Què és la depuració?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conclusions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+  
+    <!-- Contingut per a altres pàgines -->
+    
+                  
+
+
+
+  <h1>Introducció</h1>
+
+<h2 id="1-introduccio-a-les-estructures-de-control-i-depuracio">1. Introducció a les Estructures de Control i Depuració</h2>
+<h3 id="que-son-les-estructures-de-control-i-la-depuracio">Què són les estructures de control i la depuració?</h3>
+<p>Les <strong>estructures de control</strong> són fonamentals per a qualsevol llenguatge de programació. Permeten al programador <strong>dirigir el flux d'execució del codi</strong>, decidint quines instruccions s'han d'executar en funció de certes condicions, repetint accions múltiples vegades o saltant parts del codi en moments determinats.</p>
+<p>Les <strong>estructures de control</strong> s'agrupen en:
+- <strong>Estructures de selecció</strong>: Permeten triar quines accions realitzar segons una condició (per exemple, <code>if</code>, <code>else</code>).
+- <strong>Estructures de repetició</strong>: Permeten repetir una o més instruccions de manera indefinida o fins que es compleixi una condició (per exemple, bucles <code>for</code>, <code>while</code>).
+- <strong>Estructures de salt</strong>: Permeten interrompre o modificar el flux d'execució del codi (per exemple, <code>break</code>, <code>continue</code>).</p>
+<p>La <strong>depuració</strong> és el procés d'identificar i corregir errors en el codi (també coneguts com a <strong>bugs</strong>). Un cop es detecta un error en el codi, és necessari depurar-lo per evitar que el programa es detingui inesperadament. La depuració inclou tècniques com l'ús de missatges de depuració, el seguiment del flux del programa i l'ús d'eines especialitzades.</p>
+<hr />
+<h3 id="breu-historia-de-les-estructures-de-control-i-la-depuracio">Breu història de les estructures de control i la depuració</h3>
+<ul>
+<li><strong>Anys 1950-1960</strong>: Amb els primers llenguatges de programació com <strong>Fortran</strong> i <strong>COBOL</strong>, es van començar a utilitzar estructures de control bàsiques com els salts (<code>goto</code>) i les condicions (<code>if</code>).</li>
+<li><strong>Anys 1970-1980</strong>: Els llenguatges com <strong>C</strong> van introduir noves estructures de control més sofisticades i més fàcils d'utilitzar. A la vegada, van aparèixer tècniques de depuració amb les primeres eines d'anàlisi de codi.</li>
+<li><strong>Anys 1990-2000</strong>: Amb el creixement de la programació orientada a objectes i l'ús de <strong>Java</strong> i <strong>C++</strong>, les estructures de control van evolucionar, i la depuració va incorporar noves tècniques, incloent el seguiment de codi en temps real.</li>
+<li><strong>Actualitat</strong>: Els llenguatges moderns com <strong>Python</strong>, <strong>JavaScript</strong> o <strong>Go</strong> han millorat les estructures de control i les tècniques de depuració, afegint eines com depuradors interactius i entorns de desenvolupament integrats (IDE) que ajuden a escriure codi més eficaç i detectar errors més fàcilment.</li>
+</ul>
+<hr />
+<h3 id="tipus-destructures-de-control">Tipus d'estructures de control</h3>
+<p>Les estructures de control en programació es poden classificar en diverses categories. Les més comunes són les <strong>estructures de selecció</strong>, <strong>estructures de repetició</strong> i <strong>estructures de salt</strong>.</p>
+<h4 id="estructures-de-seleccio"><strong>Estructures de selecció</strong></h4>
+<p>Les estructures de <strong>selecció</strong> permeten que el programa prengui decisions en funció d’una condició. Les més comunes són les condicions <strong>if</strong>, <strong>elif</strong> i <strong>else</strong>. Aquestes estructures s’utilitzen per <strong>executar codi diferent</strong> segons es compleixin o no certes condicions.</p>
+<p>Exemple:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">if</span> <span class="n">condicio</span><span class="p">:</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="c1"># fer alguna cosa</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">else</span><span class="p">:</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="c1"># fer alguna altra cosa</span>
+</span></code></pre></div></p>
+<h4 id="estructures-de-repeticio"><strong>Estructures de repetició</strong></h4>
+<p>Les <strong>estructures de repetició</strong> permeten repetir una o més instruccions fins que es compleixi una condició. Les més comunes són els bucles <strong>for</strong> i <strong>while</strong>.</p>
+<p>Exemple de bucle <code>while</code>:
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">while</span> <span class="n">condicio</span><span class="p">:</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="c1"># repetir alguna cosa</span>
+</span></code></pre></div></p>
+<h4 id="estructures-de-salt"><strong>Estructures de salt</strong></h4>
+<p>Les <strong>estructures de salt</strong> permeten modificar el flux d'execució normal del programa. Les sentències com <strong>break</strong>, <strong>continue</strong> i <strong>pass</strong> són molt útils en bucles i condicions.</p>
+<ul>
+<li><strong><code>break</code></strong>: Sortir d'un bucle de manera anticipada.</li>
+<li><strong><code>continue</code></strong>: Saltar a la següent iteració del bucle.</li>
+<li><strong><code>pass</code></strong>: No fer res, es fa servir com a marcador.</li>
+</ul>
+<hr />
+<h3 id="que-es-la-depuracio">Què és la depuració?</h3>
+<p>La <strong>depuració</strong> és el procés de trobar i solucionar els errors o <strong>bugs</strong> en un programa. Tots els programes contenen errors durant el seu desenvolupament, i la depuració permet identificar els punts on el programa no es comporta com s'esperava.</p>
+<p><strong>Tècniques de depuració</strong>:</p>
+<ul>
+<li><strong>Missatges de depuració</strong>: Imprimir missatges en el codi per veure quines parts del codi s'executen.</li>
+<li><strong>Depuradors interactius</strong>: Eines que permeten analitzar el flux d'execució línia per línia i examinar les variables durant l'execució.</li>
+</ul>
+<hr />
+<h3 id="conclusions">Conclusions</h3>
+<p>En aquesta unitat, aprendrem a utilitzar les estructures de control bàsiques per escriure programes que siguin dinàmics i eficaços. També ens centrarem en les tècniques de <strong>depuració</strong> per identificar i corregir errors, i la <strong>documentació del codi</strong> per garantir que el nostre programari sigui fàcil de mantenir i entendre per altres programadors.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+  
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

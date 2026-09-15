@@ -1,0 +1,943 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../img/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>6.Exercicis - 4. Matrius, Operacions Agregades i Expressions Regulars</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://joamuran.net/curs24_25/css/material-just.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="amber" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#exercici-1-creacio-de-matrius-unidimensionals-i-multidimensionals-6a" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="4. Matrius, Operacions Agregades i Expressions Regulars" class="md-header__button md-logo" aria-label="4. Matrius, Operacions Agregades i Expressions Regulars" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            4. Matrius, Operacions Agregades i Expressions Regulars
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              6.Exercicis
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="4. Matrius, Operacions Agregades i Expressions Regulars" class="md-nav__button md-logo" aria-label="4. Matrius, Operacions Agregades i Expressions Regulars" data-md-component="logo">
+      
+  <img src="../../img/logo.png" alt="logo">
+
+    </a>
+    4. Matrius, Operacions Agregades i Expressions Regulars
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inici
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.Introduccio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduccio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.Matrius/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Matrius (Arrays) i Matrius Multidimensionals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.Cadenes_ER/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manipulació de Cadenes de Text i Expressions Regulars
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.Agregades/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operacions Agregades. Filtració, Reducció i Recol·lecció
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../5.Documents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tractament de Documents i Intercanvi de Dades
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#exercici-1-creacio-de-matrius-unidimensionals-i-multidimensionals-6a" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercici 1: Creació de matrius unidimensionals i multidimensionals [6.a]
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercici-2-operacions-basiques-entre-matrius-6b" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercici 2: Operacions bàsiques entre matrius [6.b]
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercici-3-diferencies-entre-matrius-i-altres-estructures-6c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercici 3: Diferències entre matrius i altres estructures [6.c]
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercici-4-expresions-regulars-i-iteracio-en-cadenes-6d-i-6f" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercici 4: Expresions regulars i iteració en cadenes. [6.d i 6.f]
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercici 4: Expresions regulars i iteració en cadenes. [6.d i 6.f]">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tasques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tasques
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#entrada-i-sortida-esperada-indicativa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Entrada i sortida esperada (indicativa)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercici-5-filtracio-dusuaris-actius" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercici 5: Filtració d’usuaris actius
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercici-6-resum-dingressos-mensuals-duna-botiga-online" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercici 6: Resum d’ingressos mensuals d’una botiga online
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercici-7-transformacio-de-dades-meteorologiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercici 7: Transformació de dades meteorològiques
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercici-8-analisi-de-vendes-setmanals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercici 8: Anàlisi de vendes setmanals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercici-9-productes-amb-iva-i-filtratge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercici 9: Productes amb IVA i filtratge
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercici-10-creacio-escriptura-i-lectura-de-json-amb-operacions-agregades" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercici 10: Creació, escriptura i lectura de JSON amb operacions agregades
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercici-11-manipulacio-dxml-amb-llistes-i-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercici 11: Manipulació d’XML amb llistes i map()
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercici-12-manipulacio-de-csv-amb-filter-i-zip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercici 12: Manipulació de CSV amb filter() i zip()
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exercici 12: Manipulació de CSV amb filter() i zip()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#observacions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Observacions
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+  
+    <!-- Contingut per a altres pàgines -->
+    
+                  
+
+
+
+<h1 style="display:none;"># Inici</h1>
+<style>
+    .md-typeset h2{
+        font-weight: bold!important;
+    }
+</style>
+
+<h2 id="exercici-1-creacio-de-matrius-unidimensionals-i-multidimensionals-6a">Exercici 1: Creació de matrius unidimensionals i multidimensionals [6.a]</h2>
+<ol>
+<li>Crea un <strong>vector</strong> amb els següents valors de temperatura: <code>[23, 25, 19, 30, 21]</code>.</li>
+<li>Crea una <strong>matriu 2x3</strong> amb els següents valors:
+   <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>[[1, 2, 3],
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a> [4, 5, 6]]
+</span></code></pre></div></li>
+<li>Crea una <strong>matriu 3x2x2</strong> (3 blocs, 2 files, 2 columnes) amb els números de l'1 al 12.</li>
+<li>Mostra el primer element del vector, la segona fila de la matriu 2x3 i el segon element del segon bloc de la matriu 3D.</li>
+</ol>
+<hr />
+<h2 id="exercici-2-operacions-basiques-entre-matrius-6b">Exercici 2: Operacions bàsiques entre matrius [6.b]</h2>
+<p>Treballant amb NumPy, i donades les matrius:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">])</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">M1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">M2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]])</span>
+</span></code></pre></div>
+<ol>
+<li>Calcula element a element:<ul>
+<li><code>A + B</code></li>
+<li><code>A - B</code></li>
+<li><code>A * 2</code></li>
+<li><code>B / 2</code></li>
+</ul>
+</li>
+<li>Calcula la suma de <code>M1 + M2</code> i el producte de matrius <code>M1.dot(M2)</code>.</li>
+<li>Mostra la transposició de <code>M1</code> i calcula la mitjana de tots els elements de <code>M2</code>.</li>
+</ol>
+<hr />
+<h2 id="exercici-3-diferencies-entre-matrius-i-altres-estructures-6c">Exercici 3: Diferències entre matrius i altres estructures [6.c]</h2>
+<p>Tens les vendes de tres productes (A, B, C) durant 4 mesos:</p>
+<ul>
+<li><em>Producte A</em>: [120, 150, 130, 160]</li>
+<li><em>Producte B</em>: [80, 90, 100, 110]</li>
+<li><em>Producte C</em>: [200, 180, 220, 210]</li>
+</ul>
+<p>Guarda aquestes dades en:</p>
+<ul>
+<li>
+<p><strong>Una llista de llistes.</strong> Una llista de llistes és una estructura bidimensional: cada subllista representa un producte amb les seves vendes. Digues com <strong>accediries al element</strong> 100 del producte B (en comentaris)</p>
+</li>
+<li>
+<p><strong>Un diccionari amb claus 'A', 'B', 'C'.</strong> Un diccionari permet identificar cada producte per nom, fent el codi més llegible. Digues com <strong>accediries al element</strong> 100 del producte B (en comentaris)</p>
+</li>
+<li>
+<p><strong>Una matriu NumPy 3x4.</strong> Una matriu NumPy és la més adequada per operacions vectorials: sumar files, columnes, calcular mitjanes… Digues com <strong>accediries al element</strong> 100 del producte B (en comentaris) i com trauries el <strong>total de cada producte</strong></p>
+</li>
+</ul>
+<hr />
+<h2 id="exercici-4-expresions-regulars-i-iteracio-en-cadenes-6d-i-6f">Exercici 4: Expresions regulars i iteració en cadenes. [6.d i 6.f]</h2>
+<p>Tens un text amb informació de contactes:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">text</span> <span class="o">=</span> <span class="s2">"""</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="s2">Contactes:</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="s2">Nom: Inés García, Correu: ines.garcia@gmail.com, Telèfon: 678-123-456</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="s2">Nom: Carlos Pérez, Correu: carlos_perez@hotmail.com, Telèfon: 612-987-321</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="s2">Nom: Maria López, Correu: maria.lopez@empresa.es, Telèfon: 619-456-789</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="s2">"""</span>
+</span></code></pre></div>
+<h3 id="tasques">Tasques</h3>
+<h4 id="1-extreu-tots-els-correus-electronics">1️⃣ Extreu tots els correus electrònics</h4>
+<p>Utilitza <strong>expressions regulars</strong> (<code>re.findall</code>) per obtenir una llista amb tots els correus del text.</p>
+<h4 id="2-extreu-tots-els-numeros-de-telefon">2️⃣ Extreu tots els números de telèfon</h4>
+<p>Els números estan en format <code>XXX-XXX-XXX</code>. Crea una llista amb aquests números utilitzant regex.</p>
+<h4 id="3-comptar-aparicions-del-nom-ines">3️⃣ Comptar aparicions del nom "Inés"</h4>
+<p>Utilitza indexació o mètodes de cadenes (<code>count</code>, <code>find</code>) per determinar quantes vegades apareix el nom "Inés" dins del text.</p>
+<h4 id="4-crear-una-llista-amb-tots-els-noms">4️⃣ Crear una llista amb tots els noms</h4>
+<p>Crea una llista amb els noms complets de tots els contactes. Pots combinar <code>split()</code> amb regex si cal.</p>
+<h4 id="5-transformar-els-correus-a-majuscules">5️⃣ Transformar els correus a majuscules</h4>
+<p>Genera una nova llista amb els correus convertits a majuscules.</p>
+<h4 id="6-recorrer-la-llista-de-correus">6️⃣ Recórrer la llista de correus</h4>
+<p>Imprimeix cada correu amb el format:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Correu trobat: &lt;correu&gt;
+</span></code></pre></div></p>
+<h4 id="7-filtrar-i-imprimir-els-telefons-que-comencen-amb-61">7️⃣ Filtrar i imprimir els telèfons que comencen amb <code>61</code></h4>
+<p>Recorre la llista de telèfons amb un bucle <code>for</code> i imprimeix només aquells que comencen amb <code>61</code>.</p>
+<h3 id="entrada-i-sortida-esperada-indicativa">Entrada i sortida esperada (indicativa)</h3>
+<p><strong>Correus:</strong>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>['ines.garcia@gmail.com', 'carlos_perez@hotmail.com', 'maria.lopez@empresa.es']
+</span></code></pre></div></p>
+<p><strong>Telèfons:</strong>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>['678-123-456', '612-987-321', '699-456-789']
+</span></code></pre></div></p>
+<p><strong>Noms:</strong>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>['Inés García', 'Carlos Pérez', 'Maria López']
+</span></code></pre></div></p>
+<p><strong>Sortida amb iterador de correus:</strong>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Correu trobat: ines.garcia@gmail.com
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>Correu trobat: carlos_perez@hotmail.com
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>Correu trobat: maria.lopez@empresa.es
+</span></code></pre></div></p>
+<p><strong>Telèfons que comencen amb 61:</strong>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>612-987-321
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>619-456-789
+</span></code></pre></div></p>
+<hr />
+<p><em>A partir d'ací, anem a treballar amb exercicis corresponents a operacions agregades [6.e i 6.f]</em></p>
+<hr />
+<h2 id="exercici-5-filtracio-dusuaris-actius">Exercici 5: Filtració d’usuaris actius</h2>
+<p>Ets el responsable d’una aplicació web que gestiona comptes d’usuari. La teva tasca és identificar quins usuaris estan actius i quins tenen més de 18 anys per poder enviar-los notificacions personalitzades.</p>
+<p><strong>Dades:</strong></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">usuaris</span> <span class="o">=</span> <span class="p">[</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    <span class="p">{</span><span class="s2">"nom"</span><span class="p">:</span> <span class="s2">"Anna"</span><span class="p">,</span> <span class="s2">"edat"</span><span class="p">:</span> <span class="mi">17</span><span class="p">,</span> <span class="s2">"actiu"</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>    <span class="p">{</span><span class="s2">"nom"</span><span class="p">:</span> <span class="s2">"Pau"</span><span class="p">,</span> <span class="s2">"edat"</span><span class="p">:</span> <span class="mi">21</span><span class="p">,</span> <span class="s2">"actiu"</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>    <span class="p">{</span><span class="s2">"nom"</span><span class="p">:</span> <span class="s2">"Joan"</span><span class="p">,</span> <span class="s2">"edat"</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span> <span class="s2">"actiu"</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>    <span class="p">{</span><span class="s2">"nom"</span><span class="p">:</span> <span class="s2">"Clara"</span><span class="p">,</span> <span class="s2">"edat"</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span> <span class="s2">"actiu"</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="p">]</span>
+</span></code></pre></div>
+<p><strong>Tasques:</strong></p>
+<ol>
+<li>Filtra només els <strong>usuaris actius</strong>.</li>
+<li>Filtra els <strong>usuaris majors d’edat</strong> actius.</li>
+<li>Mostra el resultat final amb nom i edat.</li>
+</ol>
+<hr />
+<h2 id="exercici-6-resum-dingressos-mensuals-duna-botiga-online">Exercici 6: Resum d’ingressos mensuals d’una botiga online</h2>
+<p>Ets analista de vendes d’una botiga online i vols obtenir un resum ràpid dels ingressos mensuals per fer un informe econòmic.</p>
+<p><strong>Dades:</strong></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">vendes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1200</span><span class="p">,</span> <span class="mi">950</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">750</span><span class="p">]</span>
+</span></code></pre></div>
+<p><strong>Tasques:</strong></p>
+<ol>
+<li>Calcula el <strong>total d’ingressos</strong> amb <code>reduce()</code>.</li>
+<li>Calcula la <strong>mitjana de vendes</strong>.</li>
+<li>Troba la <strong>venda més alta</strong>.</li>
+<li>Mostra un missatge resum:</li>
+</ol>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Total: XXXX€, Mitjana: XX€, Venda més alta: XXX€
+</span></code></pre></div>
+<hr />
+<h2 id="exercici-7-transformacio-de-dades-meteorologiques">Exercici 7: Transformació de dades meteorològiques</h2>
+<p><strong>Escenari:</strong>
+Treballes en una empresa que ofereix prediccions meteorològiques a diverses ciutats. Necessites convertir les temperatures de Celsius a Fahrenheit per mostrar-les als clients nord-americans.</p>
+<p><strong>Dades:</strong></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">celsius</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">ciutats</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Barcelona"</span><span class="p">,</span> <span class="s2">"Madrid"</span><span class="p">,</span> <span class="s2">"València"</span><span class="p">,</span> <span class="s2">"Sevilla"</span><span class="p">,</span> <span class="s2">"Bilbao"</span><span class="p">]</span>
+</span></code></pre></div>
+<p><strong>Tasques:</strong></p>
+<ol>
+<li>Converteix totes les temperatures a <strong>Fahrenheit</strong> amb <code>map()</code>.</li>
+<li>Crea un <strong>diccionari ciutat → temperatura Fahrenheit</strong> amb <code>zip()</code>.</li>
+<li>Mostra el resultat final amb format:</li>
+</ol>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>Barcelona: XX°F
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>València: XX°F
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>...
+</span></code></pre></div>
+<p><strong>Objectiu:</strong> Practicar <strong>recol·lecció de dades i transformació a un nou format</strong>.</p>
+<hr />
+<h2 id="exercici-8-analisi-de-vendes-setmanals">Exercici 8: Anàlisi de vendes setmanals</h2>
+<p>Gestiona les vendes d’una botiga de mobles. Cada fila de la matriu representa una setmana i cada columna un producte. Vols identificar setmanes amb bones vendes i calcular totals per producte.</p>
+<p><strong>Dades:</strong></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">matriu_vendes</span> <span class="o">=</span> <span class="p">[</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>    <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span>  <span class="c1"># setmana 1</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>    <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">14</span><span class="p">],</span>  <span class="c1"># setmana 2</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>    <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>  <span class="c1"># setmana 3</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="p">]</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="n">productes</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"taula"</span><span class="p">,</span> <span class="s2">"cadira"</span><span class="p">,</span> <span class="s2">"llit"</span><span class="p">]</span>
+</span></code></pre></div>
+<p><strong>Tasques:</strong></p>
+<ol>
+<li>Filtra les <strong>setmanes que tenen algun producte amb vendes superiors a 10</strong>.</li>
+<li>Calcula les <strong>vendes totals per producte</strong> (sumant columnes).</li>
+<li>Duplica les vendes de totes les setmanes amb <code>map()</code> dins de <code>map()</code>.</li>
+<li>Mostra els resultats finals.</li>
+</ol>
+<p><strong>Objectiu:</strong> Aplicar <strong>filtració, reducció i recol·lecció</strong> sobre dades similars a un entorn de botiga real.</p>
+<hr />
+<h2 id="exercici-9-productes-amb-iva-i-filtratge">Exercici 9: Productes amb IVA i filtratge</h2>
+<p>Ets encarregat del departament de preus d’una botiga. Vols afegir l’IVA a tots els productes i seleccionar els més cars per una promoció especial.</p>
+<p><strong>Dades:</strong></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">productes</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>    <span class="s2">"taula"</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>    <span class="s2">"cadira"</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>    <span class="s2">"sofà"</span><span class="p">:</span> <span class="mi">300</span><span class="p">,</span>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>    <span class="s2">"llit"</span><span class="p">:</span> <span class="mi">180</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Tasques:</strong></p>
+<ol>
+<li>Filtra els productes amb <strong>preu superior a 100€</strong>.</li>
+<li>Aplica un <strong>increment d’IVA del 21%</strong> a tots els productes.</li>
+<li>Filtra els productes amb <strong>preu final superior a 200€</strong>.</li>
+<li>Mostra el diccionari final amb noms i preus actualitzats.</li>
+</ol>
+<hr />
+<h2 id="exercici-10-creacio-escriptura-i-lectura-de-json-amb-operacions-agregades">Exercici 10: Creació, escriptura i lectura de JSON amb operacions agregades</h2>
+<ol>
+<li>
+<p>Crea una <strong>llista de diccionaris</strong> anomenada <code>persones</code> amb <strong>exactament tres elements</strong>, amb les dades següents:</p>
+</li>
+<li>
+<p>Persona 1: Nom = "Anna", Edat = 28, Ciutat = "València"</p>
+</li>
+<li>Persona 2: Nom = "Marc", Edat = 35, Ciutat = "Alacant"</li>
+<li>
+<p>Persona 3: Nom = "Laura", Edat = 42, Ciutat = "Castelló"</p>
+</li>
+<li>
+<p>Utilitza la funció <code>map()</code> per obtenir una <strong>llista amb només les edats</strong> de totes les persones.</p>
+</li>
+<li>
+<p>Utilitza la funció <code>reduce()</code> per calcular la <strong>suma total de les edats</strong>.</p>
+</li>
+<li>
+<p>Crea un diccionari anomenat <code>dades</code> amb les claus:</p>
+</li>
+<li><code>"persones"</code> → contindrà la llista original de diccionaris</li>
+<li>
+<p><code>"edat_total"</code> → contindrà la suma total de les edats</p>
+</li>
+<li>
+<p>Escriu el diccionari <code>dades</code> en un fitxer anomenat <code>persones.json</code>.</p>
+</li>
+<li>
+<p>Llegeix el fitxer <code>persones.json</code> i imprimeix:</p>
+</li>
+<li>La llista de persones</li>
+<li>El valor de l’edat total</li>
+</ol>
+<hr />
+<h2 id="exercici-11-manipulacio-dxml-amb-llistes-i-map">Exercici 11: Manipulació d’XML amb llistes i map()</h2>
+<ol>
+<li>
+<p>Crea una <strong>llista de diccionaris</strong> anomenada <code>registres</code> amb les dades següents:</p>
+</li>
+<li>
+<p>Nom = "Pere", Edat = 30</p>
+</li>
+<li>Nom = "Clara", Edat = 25</li>
+<li>
+<p>Nom = "Jordi", Edat = 40</p>
+</li>
+<li>
+<p>A partir de la llista <code>registres</code>, crea un <strong>document XML</strong> amb l’estructura següent:</p>
+</li>
+</ol>
+<div class="language-xml highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="nt">&lt;persones&gt;</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">    </span><span class="nt">&lt;persona&gt;</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">        </span><span class="nt">&lt;nom&gt;</span>...<span class="nt">&lt;/nom&gt;</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">        </span><span class="nt">&lt;edat&gt;</span>...<span class="nt">&lt;/edat&gt;</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w">    </span><span class="nt">&lt;/persona&gt;</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="nt">&lt;/persones&gt;</span>
+</span></code></pre></div>
+<ol>
+<li>
+<p>Escriu el document XML en un fitxer anomenat <code>persones.xml</code>.</p>
+</li>
+<li>
+<p>Llegeix el fitxer <code>persones.xml</code> i imprimeix per pantalla:</p>
+</li>
+<li>
+<p>El nom i l’edat de cada persona</p>
+</li>
+<li>
+<p>Utilitza la funció <code>map()</code> per incrementar <strong>en 1 any l’edat de totes les persones</strong>.</p>
+</li>
+<li>
+<p>Actualitza el document XML amb les noves edats i guarda el resultat en un nou fitxer anomenat <code>persones_actualitzat.xml</code>.</p>
+</li>
+</ol>
+<hr />
+<h2 id="exercici-12-manipulacio-de-csv-amb-filter-i-zip">Exercici 12: Manipulació de CSV amb filter() i zip()</h2>
+<ol>
+<li>Crea dues llistes:</li>
+<li><code>noms = ["Sergi", "Marta", "Joan", "Elena"]</code></li>
+<li>
+<p><code>edats = [22, 34, 29, 41]</code></p>
+</li>
+<li>
+<p>Utilitza la funció <code>zip()</code> per combinar les dues llistes i generar una <strong>llista de tuples</strong> <code>(nom, edat)</code>.</p>
+</li>
+<li>
+<p>Escriu aquestes dades en un fitxer anomenat <code>persones.csv</code> amb el format següent:</p>
+</li>
+</ol>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>nom,edat
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>Sergi,22
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>Marta,34
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>Joan,29
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>Elena,41
+</span></code></pre></div>
+<ol>
+<li>
+<p>Llegeix el fitxer <code>persones.csv</code> i guarda les dades (excepte la capçalera) en una llista de tuples.</p>
+</li>
+<li>
+<p>Utilitza la funció <code>filter()</code> per obtenir només les persones amb <strong>edat superior a 30</strong>.</p>
+</li>
+<li>
+<p>Escriu les files filtrades en un nou fitxer anomenat <code>persones_mes_30.csv</code>, mantenint la mateixa capçalera.</p>
+</li>
+</ol>
+<hr />
+<h3 id="observacions">Observacions</h3>
+<ul>
+<li>No està permés utilitzar bucles <code>for</code> per a les operacions indicades amb <code>map()</code>, <code>filter()</code> o <code>reduce()</code>.</li>
+<li>Es recomana utilitzar els mòduls <code>json</code>, <code>xml.etree.ElementTree</code>, <code>csv</code> i <code>functools</code>.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+  
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
