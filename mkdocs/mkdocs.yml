@@ -2,7 +2,7 @@ site_name: Programació, xarxes i sistemes informàtics II
 site_url: https://abeneto.github.io/IPRG_2526
 
 nav:
-  - Mòdul Programació, xarxes i sistemes informàtics II: index.md
+  - Mòdul PRX II: index.md
   - 1. Fonaments de la Programació:  u1
   - 2. Estructures de Control i Depuració: u2
   - 3. E/S i Gestió de Dades: u3
