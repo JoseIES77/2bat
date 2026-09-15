@@ -1,0 +1,55 @@
+name: actualizarBat
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'mkdocs/**'
+      - 'curs25-26_portal/mkdocs.yml'
+      - '.github/workflows/actualizarBat.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install mkdocs-material
+
+      - name: Build sources into portal docs
+        working-directory: mkdocs
+        run: |
+          mkdocs build -d ../curs25-26_portal/docs/
+          for u in u*/; do
+            (cd "$u" && mkdocs build -d ../../curs25-26_portal/docs/"${u%/}")
+          done
+
+      - name: Build portal
+        working-directory: curs25-26_portal
+        run: mkdocs build
+
+      - name: Deploy to gh-pages
+        working-directory: curs25-26_portal
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git remote set-url origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          mkdocs gh-deploy --remote-branch gh-pages --force --remote origin
