@@ -4,10 +4,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - 'mkdocs/**'
-      - 'curs25-26_portal/mkdocs.yml'
-      - '.github/workflows/actualizarBat.yml'
   workflow_dispatch:
 
 permissions:
